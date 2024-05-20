@@ -21,6 +21,8 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
   @font-face {
     font-family: "champagne_regular";
     src: url("/fonts/champagne__limousines-webfont.woff2") format("woff2");
@@ -81,6 +83,17 @@ const { title } = Astro.props;
     margin: 0;
   }
 
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  h2,
+  h3 {
+    font-family: "Fugaz One", sans-serif;
+  }
+
   h1 {
     font-size: 7rem;
   }
@@ -90,11 +103,19 @@ const { title } = Astro.props;
   }
 
   h3 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
   }
 
   p {
     font-size: 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
   }
 
   .flex {
@@ -122,10 +143,46 @@ const { title } = Astro.props;
     justify-content: center;
   }
 
+  .space-lg {
+    padding: var(--space-lg) 0;
+    gap: var(--space-lg);
+  }
+
+  .btn,
   .btn-primary {
+    text-decoration: none;
+  }
+
+  .btn {
+    font-size: 2.4rem;
     padding: 1.6rem 3.2rem;
+    border-radius: 5rem;
+  }
+
+  .btn-sm {
+    padding: 1rem 2.6rem;
+    border-radius: 5rem;
+    font-size: 2rem;
+  }
+
+  .btn-primary {
     background: var(--primary);
     color: var(--black);
-    border-radius: 2.5rem;
+  }
+
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .bg-white {
+    background: var(--white);
+  }
+
+  .wave {
+    position: absolute;
   }
 </style>
