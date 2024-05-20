@@ -1,0 +1,105 @@
+---
+const { language, page } = Astro.props;
+---
+
+<nav class="align-center">
+  <img src="/logo.svg" alt="" />
+  <div id="group" class="align-center">
+    <ul id="links" class="align-center">
+      <li><a href="">Home</a></li>
+      <li><a href="">Projects</a></li>
+      <li><a href="">Services</a></li>
+    </ul>
+    <a href="" id="contact" class="btn-primary">Contact us</a>
+    <div id="dropdown">
+      <span data-lang={language}
+        >{language} <img src="chevron-down.svg" alt="" /></span
+      >
+      <div id="dropdown-contents" class="flex-column">
+        <a data-lang="EN">EN</a>
+        <a data-lang="NO">NO</a>
+        <a data-lang="BG">BG</a>
+        <a data-lang="RU">RU</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdownContents = document.querySelector("#dropdown"),
+      currentLang = dropdownContents.querySelector("span"),
+      dropdownItems = dropdownContents.querySelectorAll("a");
+
+    console.log(currentLang);
+    console.log(dropdownItems);
+
+    dropdownItems.forEach((item) => {
+      if (item.dataset.lang === currentLang.dataset.lang) {
+        item.remove();
+      }
+    });
+  });
+</script>
+<style>
+  nav {
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--nav-height);
+    justify-content: space-between;
+    padding: 0 var(--space-sm);
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: unset;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  nav *:not(.btn-primary) {
+    color: var(--light);
+  }
+
+  #group {
+    gap: var(--space-lg);
+  }
+
+  #links {
+    gap: var(--space-lg);
+  }
+
+  #dropdown {
+    padding: 2rem;
+    cursor: pointer;
+  }
+
+  #dropdown-contents {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    position: absolute;
+    margin: var(--space-xxs) 0;
+    transform: translateX(calc(-1 * var(--space-xxs)));
+  }
+
+  #dropdown-contents a {
+    padding: 0.5rem var(--space-xxs);
+  }
+
+  #dropdown-contents a:hover {
+    background: #fff3;
+  }
+
+  #dropdown:hover #dropdown-contents {
+    max-height: 200px;
+  }
+
+  #dropdown img {
+    padding-left: 0.5rem;
+    transform: translateY(-50%);
+  }
+</style>
