@@ -117,13 +117,26 @@ import Nav from "../components/Nav.astro";
         </div>
       </div>
     </section>
-    <section id="lets-talk-section">
+    <section id="lets-talk-section" class="relative">
       <div class="bg-light space-lg relative">
-        <img src="index/lets-talk-wave.svg" class="wave absolute" alt="" />
+        <img
+          id="lets-talk-wave"
+          src="index/lets-talk-wave.svg"
+          class="wave absolute"
+          alt=""
+        />
+        <img
+          id="lets-talk-image"
+          src="index/lets-talk-image.svg"
+          class="absolute"
+          alt=""
+        />
 
-        <div class="container">
-          <h2>Not sure where to start?</h2>
-          <div class="btn btn-primary">Let's talk</div>
+        <div class="container flex">
+          <div class="flex-column align-center space-lg">
+            <h2>Not sure where to start?</h2>
+            <div class="btn btn-primary">Let's talk</div>
+          </div>
         </div>
       </div>
     </section>
@@ -209,6 +222,22 @@ import Nav from "../components/Nav.astro";
       width: 55%;
       top: var(--space-xl);
       transform: translateX(-15%);
+    }
+
+    #lets-talk-section {
+      z-index: -1;
+    }
+
+    #lets-talk-section > div {
+      padding-bottom: 0;
+    }
+
+    #lets-talk-wave {
+      max-height: 100%;
+    }
+
+    #lets-talk-image {
+      right: var(--space-lg);
     }
   </style>
 </Layout>
