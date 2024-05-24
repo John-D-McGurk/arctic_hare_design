@@ -1,0 +1,50 @@
+---
+interface Props {
+  picture: string;
+  text: string;
+  href: string;
+  reverse: boolean;
+}
+
+const { picture, text, href, reverse } = Astro.props;
+let classList = ["flex", "project-section", "container"];
+
+if (reverse) {
+  classList.push("reverse");
+}
+---
+
+<div class:list={classList}>
+  <img src={picture} alt="" />
+  <p>{text}</p>
+  <a class="btn-sm btn-accent" href={href}>Read more</a>
+</div>
+
+<style>
+  div {
+    padding: var(--space-lg);
+    position: relative;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .reverse p {
+    flex-grow: 1;
+  }
+  .btn-sm {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: calc(var(--space-xl) * 2);
+  }
+
+  .reverse .btn-sm {
+    left: unset;
+    right: calc(var(--space-xl) * 2);
+  }
+
+  p {
+    font-size: var(--text-md);
+  }
+</style>

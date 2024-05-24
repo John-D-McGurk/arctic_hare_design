@@ -1,0 +1,43 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<li class="relative">
+  <img class="open-quotes" src="index/quote.svg" alt="" />
+  <img class="close-quotes" src="index/quote.svg" alt="" />
+  <p>{text}</p>
+</li>
+
+<style>
+  li {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--secondary-30);
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+  }
+
+  .open-quotes,
+  .close-quotes {
+    position: absolute;
+    top: 25%;
+  }
+
+  .open-quotes {
+    transform: translateX(-100%);
+    left: var(--space-md);
+  }
+
+  .close-quotes {
+    right: var(--space-md);
+    transform: translateX(100%) rotate(180deg);
+  }
+
+  p {
+    font-size: var(--text-md);
+  }
+</style>

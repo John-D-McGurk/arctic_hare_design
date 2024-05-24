@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import ProductSection from "../components/ProductSection.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
 import Nav from "../components/Nav.astro";
 ---
 
@@ -8,6 +10,12 @@ import Nav from "../components/Nav.astro";
 <Layout title="Welcome to Astro.">
   <main>
     <section id="hero" class="">
+      <img
+        id="hero-wave"
+        class="wave absolute"
+        src="index/hero-wave.svg"
+        alt=""
+      />
       <div class="container center">
         <div class="hero-text flex-column">
           <h1>
@@ -19,8 +27,7 @@ import Nav from "../components/Nav.astro";
             website, we turn your idea into reality.
           </p>
         </div>
-        <img id="hero-image" src="index/hero-image.svg" alt="" />
-        <img id="hero-wave" class="wave" src="index/hero-wave.svg" alt="" />
+        <img id="hero-image" class="absolute" "index hero-image.svg" alt="" />
       </div>
     </section>
     <section class="bg-white">
@@ -38,48 +45,170 @@ import Nav from "../components/Nav.astro";
         </div>
         <ul id="card-container" class="flex">
           <Card decoration="1" href="1" title="Design" body="" />
-          <Card decoration="2" title="Web Development" body="" />
+          <Card decoration="2" href="1" title="Web Development" body="" />
           <Card decoration="3" href="1" title="Brand Identity" body="" />
         </ul>
         <a href="" class="btn btn-primary">Contact us</a>
       </div>
     </section>
-    <section class="bg-white">
-      <div class="container flex-column align-center space-lg">
+    <section id="projects-section" class="bg-white">
+      <div class="flex-column align-center space-lg">
         <h2>Here's what we've made so far</h2>
+        <ul id="projects-container" class="padding-0">
+          <li id="projects-wave-container" class="relative">
+            <img
+              id="projects-wave"
+              src="index/projects-wave.svg"
+              alt=""
+              class="wave absolute"
+            />
+            <ProductSection
+              picture="index/mamrot-mockup.png"
+              text="An interactive website for a small detailing business in Tromsø"
+              href="1"
+              reverse={false}
+            />
+          </li>
+          <li class="bg-secondary relative">
+            <img
+              id="projects-circle"
+              src="index/light-circle.svg"
+              alt=""
+              class="circle absolute"
+            />
+            <ProductSection
+              picture="index/mcgurk-mockup.png"
+              text="A portfolio website for a web developer"
+              href="1"
+              reverse={true}
+            />
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="testimonials-section" class="bg-light">
+      <img
+        id="testimonials-circle"
+        src="index/white-circle.svg"
+        alt=""
+        class="circle absolute"
+      />
+      <img
+        id="testimonials-image"
+        class="absolute"
+        src="index/testimonials-image.svg"
+        alt=""
+      />
+
+      <div class="container flex space-lg">
+        <div>
+          <h2>Testimonials</h2>
+          <ul id="testimonials-container" class="flex-column">
+            <TestimonialCard
+              text="It was a pleasure working with Arctic Hare Design."
+            />
+            <TestimonialCard
+              text="These 2 are bunnies and no questions asked."
+            />
+            <TestimonialCard
+              text="They kept talking in a weird Downton Abbey voice?"
+            />
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="lets-talk-section">
+      <div class="bg-light space-lg relative">
+        <img src="index/lets-talk-wave.svg" class="wave absolute" alt="" />
+
+        <div class="container">
+          <h2>Not sure where to start?</h2>
+          <div class="btn btn-primary">Let's talk</div>
+        </div>
       </div>
     </section>
   </main>
+
+  <style>
+    #hero {
+      box-sizing: border-box;
+      color: var(--light);
+      height: calc(100vh - var(--nav-height));
+      position: relative;
+      padding-top: var(--space-lg);
+    }
+
+    #hero .container {
+      gap: var(--space-lg);
+    }
+
+    #hero-image {
+      width: min(40vw, 50rem);
+    }
+
+    #hero-wave {
+      width: 100%;
+      max-height: 60vh;
+    }
+
+    #projects-section div {
+      padding-bottom: 0;
+    }
+
+    #projects-wave {
+      height: 100%;
+    }
+
+    #projects-circle {
+      top: 0;
+      right: calc(-1 * var(--space-lg));
+      transform: translateX(10%);
+      max-height: 120%;
+    }
+
+    #card-container {
+      width: 100%;
+      justify-content: stretch;
+      gap: var(--space-xs);
+      padding: 0;
+    }
+
+    #projects-container {
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    #projects-wave-container {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    #testimonials-section {
+    }
+
+    #testimonials-section div {
+      width: 60%;
+      margin-left: auto;
+    }
+
+    #testimonials-container {
+      width: 100%;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0;
+    }
+
+    #testimonials-image {
+      max-width: 40%;
+      max-height: 80%;
+      top: var(--space-lg);
+      left: var(--space-lg);
+    }
+
+    #testimonials-circle {
+      width: 55%;
+      top: var(--space-xl);
+      transform: translateX(-15%);
+    }
+  </style>
 </Layout>
-
-<style>
-  #hero {
-    box-sizing: border-box;
-    color: var(--light);
-    height: calc(100vh - var(--nav-height));
-    position: relative;
-    padding-top: var(--space-lg);
-  }
-
-  #hero .container {
-    gap: var(--space-lg);
-  }
-
-  #hero-image {
-    width: min(40vw, 50rem);
-  }
-
-  #hero-wave {
-    width: 100%;
-    max-height: 60vh;
-    bottom: 0;
-    z-index: -10;
-  }
-
-  #card-container {
-    width: 100%;
-    justify-content: stretch;
-    gap: var(--space-xs);
-    padding: 0;
-  }
-</style>

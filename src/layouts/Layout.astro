@@ -61,6 +61,8 @@ const { title } = Astro.props;
     --white: #fffaf6;
     --black: #161e31;
 
+    --secondary-30: #ffd4b34d;
+
     --space-xl: 20rem;
     --space-lg: 10rem;
     --space-md: 6rem;
@@ -68,7 +70,12 @@ const { title } = Astro.props;
     --space-xs: 2rem;
     --space-xxs: 1rem;
 
-    --nav-height: 8rem;
+    --text-xl: 7rem;
+    --text-lg: 4rem;
+    --text-md: 2.8rem;
+    --text-sm: 2rem;
+
+    --nav-height: 10rem;
 
     font-size: 62.5%;
   }
@@ -95,19 +102,19 @@ const { title } = Astro.props;
   }
 
   h1 {
-    font-size: 7rem;
+    font-size: var(--text-xl);
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: var(--text-lg);
   }
 
   h3 {
-    font-size: 2.8rem;
+    font-size: var(--text-md);
   }
 
   p {
-    font-size: 2rem;
+    font-size: var(--text-sm);
   }
 
   .container {
@@ -143,14 +150,28 @@ const { title } = Astro.props;
     justify-content: center;
   }
 
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
   .space-lg {
-    padding: var(--space-lg) 0;
+    padding: var(--space-xl) 0;
     gap: var(--space-lg);
   }
 
+  .padding-0 {
+    padding: 0;
+  }
+
   .btn,
-  .btn-primary {
+  .btn-sm {
     text-decoration: none;
+    font-family: "champagne_bold", sans-serif;
+    font-weight: 500;
   }
 
   .btn {
@@ -170,6 +191,11 @@ const { title } = Astro.props;
     color: var(--black);
   }
 
+  .btn-accent {
+    background: var(--accent);
+    color: var(--light);
+  }
+
   .text-primary {
     color: var(--primary);
   }
@@ -178,11 +204,33 @@ const { title } = Astro.props;
     color: var(--accent);
   }
 
+  .bg-white,
+  .bg-secondary,
+  .bg-light {
+    position: relative;
+  }
+
   .bg-white {
     background: var(--white);
   }
 
+  .bg-secondary {
+    background: var(--secondary);
+  }
+
+  .bg-light {
+    background: var(--light);
+  }
+
   .wave {
-    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .wave ~ *:not(.absolute),
+  .circle ~ *:not(.absolute) {
+    z-index: 100;
+    position: relative;
   }
 </style>
