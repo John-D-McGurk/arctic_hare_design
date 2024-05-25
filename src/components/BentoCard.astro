@@ -1,0 +1,46 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  href: string;
+}
+
+const { image, title, href } = Astro.props;
+---
+
+<a href={href} class="relative flex">
+  <img src={image} alt="" />
+  <div id="hover-layer" class="center"><h2>{title}</h2></div>
+</a>
+
+<style>
+  a {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    flex-grow: 1;
+    transition: 0.2s;
+  }
+  img {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  #hover-layer {
+    opacity: 0;
+    background: #1e1e1e99;
+    color: var(--white);
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    transition: opacity 0.2s;
+  }
+
+  #hover-layer:hover {
+    opacity: 1;
+  }
+</style>
