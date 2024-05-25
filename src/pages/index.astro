@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import ProductSection from "../components/ProductSection.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
+import Form from "../components/Form.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -152,30 +153,7 @@ import Footer from "../components/Footer.astro";
         <div class="container justify-end">
           <div id="contact-container" class="flex-column">
             <h2>Send us a <span class="text-accent">message</span></h2>
-            <form id="contact-form" action="" class="flex-column">
-              <div class="input-wrapper">
-                <input class="text-input" type="text" placeholder=" " />
-                <span class="placeholder">Name</span>
-              </div>
-              <div class="input-wrapper">
-                <input class="text-input" type="text" placeholder=" " />
-                <span class="placeholder">E-mail</span>
-              </div>
-              <div class="input-wrapper">
-                <textarea
-                  class="text-input"
-                  name=""
-                  id=""
-                  rows="6"
-                  placeholder=" "></textarea>
-                <span class="placeholder">Message</span>
-              </div>
-              <input
-                type="submit"
-                class="btn-sm btn-accent"
-                value="Contact us"
-              />
-            </form>
+            <Form color="" />
           </div>
         </div>
       </div>
@@ -287,58 +265,8 @@ import Footer from "../components/Footer.astro";
     gap: var(--space-sm);
   }
 
-  #contact-form {
-    gap: var(--space-xs);
-    align-items: flex-end;
-  }
-
-  #contact-form .text-input {
-    background: var(--light);
-    box-sizing: border-box;
-    border: 1px solid var(--black);
-    font-size: var(--text-md);
-    font-family: champagne_regular, sans-serif;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    width: 100%;
-  }
-
   #contact-image {
     left: var(--space-lg);
     max-height: 75%;
-  }
-
-  .input-wrapper {
-    position: relative;
-    align-self: stretch;
-  }
-
-  .input-wrapper .placeholder {
-    font-size: var(--text-md);
-    position: absolute;
-    top: 2.2rem;
-    left: 2.15rem;
-    transition: transform 0.2s;
-    transform-origin: left;
-    pointer-events: none;
-    width: 100%;
-  }
-
-  .text-input:focus ~ .placeholder,
-  .text-input:not(:placeholder-shown) ~ .placeholder,
-  .text-input:-webkit-autofill {
-    transform: translateY(-75%) scale(0.5);
-  }
-
-  /* check if this is needed */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  textarea:-webkit-autofill:active {
-    transition: all 600000s ease-in-out 0s;
   }
 </style>

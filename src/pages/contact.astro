@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Form from "../components/Form.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -7,17 +8,76 @@ import Footer from "../components/Footer.astro";
 <Layout title="Contact"
   ><Nav language="EN" page="Contact" />
   <main>
-    <div class="container flex">
-      <div class="flex-column">
-        <h1>Are you ready for <span class="text-primary">your</span></h1>
+    <div class="container flex space-lg">
+      <div id="main-text" class="flex-column">
+        <h1>
+          Are you ready for <span class="text-primary">your</span> new <span
+            class="text-primary">website?</span
+          >
+        </h1>
+        <p>
+          Not sure where to start or what to do? Don't worry, we've got you
+          covered. Call or message us to arrange a meeting and discuss your
+          future website!
+        </p>
+        <a href="">Call us on: +47 413 92 253</a>
+        <a href="">E-mail us at: arctic.hare.design@gmail.com</a>
+        <span>Follow us on:</span>
+        <div class="socials">
+          <a href=""><img src="" alt="" /></a>
+        </div>
+      </div>
+      <div id="form-container">
+        <Form color="dark" />
+      </div>
+    </div>
+    <div id="wave-container" class="relative align-center">
+      <img class="wave absolute" src="contact/wave.svg" alt="" />
+
+      <div class="container align-center">
+        <img src="contact/image.svg" alt="" />
+        <p id="large-text">Don't hesitate to ask!</p>
       </div>
     </div>
   </main>
-  <Footer language="EN" />
 </Layout>
+<Footer language="EN" />
 
 <style>
   main {
+    font-size: var(--text-sm);
     color: var(--white);
+  }
+
+  #main-text {
+    width: 55%;
+  }
+
+  .space-lg {
+    padding-bottom: 0;
+  }
+
+  #form-container {
+    flex-grow: 1;
+  }
+
+  #large-text {
+    color: var(--black);
+    font-family: "Fugaz One";
+    font-size: var(--text-lg);
+  }
+
+  #wave-container {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  #wave-container div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .wave {
+    height: 110%;
   }
 </style>
