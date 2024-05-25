@@ -4,10 +4,11 @@ import Card from "../components/Card.astro";
 import ProductSection from "../components/ProductSection.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Nav language="EN" page="Home" />
-<Layout title="Welcome to Astro.">
+<Layout title="Home">
+  <Nav language="EN" page="Home" />
   <main>
     <section id="hero" class="">
       <img
@@ -27,7 +28,7 @@ import Nav from "../components/Nav.astro";
             website, we turn your idea into reality.
           </p>
         </div>
-        <img id="hero-image" class="absolute" "index hero-image.svg" alt="" />
+        <img id="hero-image" src="index/hero-image.svg" alt="" />
       </div>
     </section>
     <section class="bg-white">
@@ -140,104 +141,204 @@ import Nav from "../components/Nav.astro";
         </div>
       </div>
     </section>
+    <section id="contact-section">
+      <div class="bg-light space-lg">
+        <img
+          id="contact-image"
+          class="absolute"
+          src="index/contact-image.svg"
+          alt=""
+        />
+        <div class="container justify-end">
+          <div id="contact-container" class="flex-column">
+            <h2>Send us a <span class="text-accent">message</span></h2>
+            <form id="contact-form" action="" class="flex-column">
+              <div class="input-wrapper">
+                <input class="text-input" type="text" placeholder=" " />
+                <span class="placeholder">Name</span>
+              </div>
+              <div class="input-wrapper">
+                <input class="text-input" type="text" placeholder=" " />
+                <span class="placeholder">E-mail</span>
+              </div>
+              <div class="input-wrapper">
+                <textarea
+                  class="text-input"
+                  name=""
+                  id=""
+                  rows="6"
+                  placeholder=" "></textarea>
+                <span class="placeholder">Message</span>
+              </div>
+              <input
+                type="submit"
+                class="btn-sm btn-accent"
+                value="Contact us"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <Footer language="EN" />
   </main>
-
-  <style>
-    #hero {
-      box-sizing: border-box;
-      color: var(--light);
-      height: calc(100vh - var(--nav-height));
-      position: relative;
-      padding-top: var(--space-lg);
-    }
-
-    #hero .container {
-      gap: var(--space-lg);
-    }
-
-    #hero-image {
-      width: min(40vw, 50rem);
-    }
-
-    #hero-wave {
-      width: 100%;
-      max-height: 60vh;
-    }
-
-    #projects-section div {
-      padding-bottom: 0;
-    }
-
-    #projects-wave {
-      height: 100%;
-    }
-
-    #projects-circle {
-      top: 0;
-      right: calc(-1 * var(--space-lg));
-      transform: translateX(10%);
-      max-height: 120%;
-    }
-
-    #card-container {
-      width: 100%;
-      justify-content: stretch;
-      gap: var(--space-xs);
-      padding: 0;
-    }
-
-    #projects-container {
-      width: 100%;
-      overflow: hidden;
-      margin: 0;
-    }
-
-    #projects-wave-container {
-      box-sizing: border-box;
-      width: 100%;
-    }
-
-    #testimonials-section {
-    }
-
-    #testimonials-section div {
-      width: 60%;
-      margin-left: auto;
-    }
-
-    #testimonials-container {
-      width: 100%;
-      gap: var(--space-sm);
-      padding: var(--space-md) 0;
-    }
-
-    #testimonials-image {
-      max-width: 40%;
-      max-height: 80%;
-      top: var(--space-lg);
-      left: var(--space-lg);
-    }
-
-    #testimonials-circle {
-      width: 55%;
-      top: var(--space-xl);
-      transform: translateX(-15%);
-    }
-
-    #lets-talk-section {
-      z-index: -1;
-    }
-
-    #lets-talk-section > div {
-      padding-bottom: 0;
-    }
-
-    #lets-talk-wave {
-      max-height: 100%;
-    }
-
-    #lets-talk-image {
-      right: var(--space-lg);
-    }
-  </style>
 </Layout>
+
+<style>
+  #hero {
+    box-sizing: border-box;
+    color: var(--light);
+    height: calc(100vh - var(--nav-height));
+    position: relative;
+    padding-top: var(--space-lg);
+  }
+
+  #hero .container {
+    gap: var(--space-lg);
+  }
+
+  #hero-image {
+    width: min(40vw, 50rem);
+  }
+
+  #hero-wave {
+    width: 100%;
+    max-height: 60vh;
+  }
+
+  #projects-section div {
+    padding-bottom: 0;
+  }
+
+  #projects-wave {
+    height: 100%;
+  }
+
+  #projects-circle {
+    top: 0;
+    right: calc(-1 * var(--space-lg));
+    transform: translateX(10%);
+    max-height: 120%;
+  }
+
+  #card-container {
+    width: 100%;
+    justify-content: stretch;
+    gap: var(--space-xs);
+    padding: 0;
+  }
+
+  #projects-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  #projects-wave-container {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  #testimonials-section {
+  }
+
+  #testimonials-section div {
+    width: 60%;
+    margin-left: auto;
+  }
+
+  #testimonials-container {
+    width: 100%;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+  }
+
+  #testimonials-image {
+    max-width: 40%;
+    max-height: 80%;
+    top: var(--space-lg);
+    left: var(--space-lg);
+  }
+
+  #testimonials-circle {
+    width: 55%;
+    top: var(--space-xl);
+    transform: translateX(-15%);
+  }
+
+  #lets-talk-section {
+    z-index: -1;
+  }
+
+  #lets-talk-section > div {
+    padding-bottom: 0;
+  }
+
+  #lets-talk-wave {
+    max-height: 100%;
+  }
+
+  #lets-talk-image {
+    right: var(--space-lg);
+  }
+
+  #contact-container {
+    width: 45%;
+    gap: var(--space-sm);
+  }
+
+  #contact-form {
+    gap: var(--space-xs);
+    align-items: flex-end;
+  }
+
+  #contact-form .text-input {
+    background: var(--light);
+    box-sizing: border-box;
+    border: 1px solid var(--black);
+    font-size: var(--text-md);
+    font-family: champagne_regular, sans-serif;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  #contact-image {
+    left: var(--space-lg);
+    max-height: 75%;
+  }
+
+  .input-wrapper {
+    position: relative;
+    align-self: stretch;
+  }
+
+  .input-wrapper .placeholder {
+    font-size: var(--text-md);
+    position: absolute;
+    top: 2.2rem;
+    left: 2.15rem;
+    transition: transform 0.2s;
+    transform-origin: left;
+    pointer-events: none;
+    width: 100%;
+  }
+
+  .text-input:focus ~ .placeholder,
+  .text-input:not(:placeholder-shown) ~ .placeholder,
+  .text-input:-webkit-autofill {
+    transform: translateY(-75%) scale(0.5);
+  }
+
+  /* check if this is needed */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
+    transition: all 600000s ease-in-out 0s;
+  }
+</style>

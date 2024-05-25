@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Contact"
+  ><Nav language="EN" page="Contact" />
+  <main>
+    <div class="container flex">
+      <div class="flex-column">
+        <h1>Are you ready for <span class="text-primary">your</span></h1>
+      </div>
+    </div>
+  </main>
+  <Footer language="EN" />
+</Layout>
+
+<style>
+  main {
+    color: var(--white);
+  }
+</style>
