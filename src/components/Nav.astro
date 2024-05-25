@@ -36,9 +36,6 @@ const { language, page } = Astro.props;
       currentLang = dropdownContents.querySelector("span"),
       dropdownItems = dropdownContents.querySelectorAll("a");
 
-    console.log(currentLang);
-    console.log(dropdownItems);
-
     dropdownItems.forEach((item) => {
       if (item.dataset.lang === currentLang.dataset.lang) {
         item.remove();
@@ -91,6 +88,7 @@ const { language, page } = Astro.props;
     position: absolute;
     margin: var(--space-xxs) 0;
     transform: translateX(calc(-1 * var(--space-xxs)));
+    z-index: 1;
   }
 
   #dropdown-contents a {

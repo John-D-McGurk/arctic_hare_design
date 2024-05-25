@@ -23,8 +23,10 @@ import Footer from "../components/Footer.astro";
         <a href="">Call us on: +47 413 92 253</a>
         <a href="">E-mail us at: arctic.hare.design@gmail.com</a>
         <span>Follow us on:</span>
-        <div class="socials">
-          <a href=""><img src="" alt="" /></a>
+        <div id="socials">
+          <a href=""><img src="facebook.svg" alt="" /></a>
+          <a href=""><img src="instagram.svg" alt="" /></a>
+          <a href=""><img src="linkedin.svg" alt="" /></a>
         </div>
       </div>
       <div id="form-container">
@@ -51,10 +53,7 @@ import Footer from "../components/Footer.astro";
 
   #main-text {
     width: 55%;
-  }
-
-  .space-lg {
-    padding-bottom: 0;
+    gap: var(--space-xs);
   }
 
   #form-container {
@@ -78,6 +77,11 @@ import Footer from "../components/Footer.astro";
   }
 
   .wave {
-    height: 110%;
+    height: 108%;
+  }
+
+  #socials {
+    display: flex;
+    gap: var(--space-sm);
   }
 </style>

@@ -1,12 +1,12 @@
 ---
 interface Props {
   title: string;
-  body: string;
+  image: string;
   href: string;
   decoration: string;
 }
 
-const { href, title, body, decoration } = Astro.props;
+const { href, title, image, decoration } = Astro.props;
 ---
 
 <li class="link-card">
@@ -15,9 +15,7 @@ const { href, title, body, decoration } = Astro.props;
       <span class="decoration text-accent">{decoration}</span>
       {title}
     </h3>
-    <p>
-      {body}
-    </p>
+    <img src={image} alt="" />
     <span class="btn-sm btn-primary"> Read more</span>
   </a>
 </li>
@@ -26,15 +24,18 @@ const { href, title, body, decoration } = Astro.props;
     color: var(--black);
     text-decoration: none;
   }
+  h3 {
+    padding: var(--space-sm);
+  }
 
   .link-card {
     position: relative;
     background-color: var(--secondary);
     border-radius: 4rem;
     flex: 1;
-    padding: var(--space-sm);
     list-style: none;
-    min-height: 30rem;
+    min-height: 50rem;
+    overflow: hidden;
   }
 
   .decoration {
@@ -45,7 +46,12 @@ const { href, title, body, decoration } = Astro.props;
 
   .btn-sm {
     position: absolute;
-    bottom: var(--space-sm);
-    right: var(--space-sm);
+    bottom: var(--space-xs);
+    right: var(--space-xs);
+  }
+  img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 </style>

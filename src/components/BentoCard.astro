@@ -8,7 +8,7 @@ interface Props {
 const { image, title, href } = Astro.props;
 ---
 
-<a href={href} class="relative flex">
+<a href={href} target="_blank" class="relative flex">
   <img src={image} alt="" />
   <div id="hover-layer" class="center"><h2>{title}</h2></div>
 </a>
@@ -28,6 +28,7 @@ const { image, title, href } = Astro.props;
     width: 100%;
     object-fit: cover;
     position: absolute;
+    transition: transform 0.5s;
   }
 
   #hover-layer {
@@ -37,10 +38,14 @@ const { image, title, href } = Astro.props;
     z-index: 1;
     height: 100%;
     width: 100%;
-    transition: opacity 0.2s;
+    transition: opacity 0.5s;
   }
 
-  #hover-layer:hover {
+  a:hover #hover-layer {
     opacity: 1;
+  }
+
+  a:hover img {
+    transform: scale(1.1);
   }
 </style>
