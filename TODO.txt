@@ -1,0 +1,3 @@
+change image imports in props to astro Image type
+
+switch md to mdx to include everything in frontmatter

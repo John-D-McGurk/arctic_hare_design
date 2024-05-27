@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import AccordionPanel from "../components/AccordionPanel.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Services">
+  <Nav language="EN" page="Services" />
+  <main>
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="services/header-wave.svg" alt="" />
+      <div class="container">
+        <h1>Services</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <AccordionPanel
+          title="Design and Development"
+          fileName="design-development"
+        />
+        <AccordionPanel
+          title="Website Maintenance"
+          fileName="website-maintenance"
+        />
+        <AccordionPanel title="Design and Print" fileName="design-print" />
+        <AccordionPanel
+          title="Social Media Management"
+          fileName="media-management"
+        />
+        <AccordionPanel title="SEO" fileName="seo" />
+      </div>
+    </div>
+    <Footer language="EN" />
+  </main></Layout
+>
+<style>
+  h1 {
+    color: var(--white);
+  }
+
+  .container {
+    padding: var(--space-lg) 0;
+  }
+
+  #wave-container img {
+    max-height: 70%;
+  }
+</style>

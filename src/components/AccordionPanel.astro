@@ -1,0 +1,117 @@
+---
+interface Props {
+  title: string;
+  fileName: string;
+}
+
+const { fileName, title } = Astro.props;
+
+const contentFile = await import(`../service-accordion/${fileName}.md`),
+  ContentComponent = contentFile.default,
+  wave = `services/${fileName}-wave.svg`,
+  image = `services/${fileName}-image.svg`;
+---
+
+<div class="panel-container">
+  <div class="panel-head">
+    <h2 class="relative">
+      {title}
+    </h2>
+  </div>
+  <div class="panel-content relative">
+    <img class="absolute wave panel-wave" src={wave} alt="" />
+    <img class="absolute panel-image" src={image} alt="" />
+    <ContentComponent />
+  </div>
+</div>
+
+<script>
+  const panelHeads = document.querySelectorAll(".panel-head");
+
+  panelHeads.forEach((panelHead) => {
+    panelHead.addEventListener("click", () => {
+      panelHead.closest(".panel-container").classList.toggle("active");
+    });
+  });
+</script>
+
+<style is:global>
+  .panel-container {
+    background: var(--secondary);
+    border-left: solid 1.4rem var(--primary);
+    margin: var(--space-md);
+  }
+
+  .panel-head {
+    padding: var(--space-sm);
+    cursor: pointer;
+  }
+
+  .panel-head h2 {
+    padding-left: var(--space-md);
+  }
+
+  .panel-container h2::before {
+    position: absolute;
+    content: "+";
+    font-size: 5.89rem;
+    font-family: sans-serif;
+    color: var(--accent);
+    line-height: 5.33rem;
+    top: 0;
+    left: 0;
+    transition: 0.9s transform;
+  }
+
+  .panel-container.active h2::before {
+    transform: rotate(315deg);
+  }
+
+  .panel-content {
+    height: 0;
+    transition: height 0.9s;
+    overflow: hidden;
+    padding: 0 var(--space-sm);
+  }
+
+  .panel-container.active .panel-content {
+    height: 90rem;
+  }
+
+  .panel-wave {
+    height: 90rem;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+  .panel-image {
+    right: 0;
+    top: 25rem;
+    height: 50rem;
+    max-width: 40%;
+  }
+
+  .panel-content ol {
+    list-style-type: none;
+    counter-reset: counter;
+    padding-left: var(--space-lg);
+    width: 50%;
+    padding-bottom: var(--space-sm);
+  }
+
+  .panel-content li {
+    counter-increment: counter;
+    position: relative;
+  }
+
+  .panel-content li::before {
+    position: absolute;
+    content: counter(counter);
+    color: var(--accent);
+    font-size: var(--text-lg);
+    left: calc(-1 * var(--space-sm));
+    font-family: "Fugaz One";
+    display: inline-block;
+    transform: translateY(-21%);
+  }
+</style>
