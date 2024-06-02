@@ -44,7 +44,28 @@ if (reverse) {
     right: calc(var(--space-xl) * 2);
   }
 
-  p {
-    font-size: var(--text-md);
+  @media only screen and (max-width: 768px) {
+    .reverse {
+      flex-direction: column;
+    }
+
+    div {
+      flex-direction: column;
+      padding: var(--space-sm);
+    }
+
+    img {
+      width: 80vw;
+    }
+
+    .btn-sm {
+      bottom: unset;
+      top: 55vw;
+      left: 50vw;
+    }
+
+    .reverse .btn-sm {
+      right: 50vw;
+    }
   }
 </style>

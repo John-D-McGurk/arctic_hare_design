@@ -74,12 +74,21 @@ const { title } = Astro.props;
     --text-xl: 7rem;
     --text-lg: 4rem;
     --text-md: 2.8rem;
+    --text-ms: 2.666rem;
     --text-sm: 2rem;
 
     --nav-height: 10rem;
 
     font-size: 62.5%;
   }
+
+  /* 11.220
+8.417
+  6.314
+4.736
+  3.553
+  2.666
+  2 */
 
   html {
     color: var(--black);
@@ -124,6 +133,8 @@ const { title } = Astro.props;
   a {
     color: unset;
     text-decoration: none;
+    transition: transform 0.5s;
+    cursor: pointer;
   }
 
   .container {
@@ -187,6 +198,12 @@ const { title } = Astro.props;
     font-family: "champagne_bold", sans-serif;
     font-weight: 500;
     border: none;
+    transition: transform 0.5s;
+  }
+
+  .btn:hover,
+  .btn-sm:hover {
+    transform: scale(1.1);
   }
 
   .btn {
@@ -247,5 +264,16 @@ const { title } = Astro.props;
   .circle ~ *:not(.absolute) {
     z-index: 100;
     position: relative;
+  }
+
+  @media only screen and (max-width: 768px) {
+    :root {
+      font-size: 40%;
+    }
+
+    .container {
+      padding-left: var(--space-xs);
+      padding-right: var(--space-xs);
+    }
   }
 </style>

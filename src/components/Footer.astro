@@ -55,4 +55,18 @@ const { language } = Astro.props;
   #logo {
     max-height: 20rem;
   }
+
+  @media only screen and (max-width: 768px) {
+    footer {
+      padding: var(--space-md) var(--space-xs);
+    }
+
+    nav {
+      display: none;
+    }
+
+    #logo {
+      max-height: 16rem;
+    }
+  }
 </style>

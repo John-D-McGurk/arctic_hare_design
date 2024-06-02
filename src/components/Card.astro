@@ -26,6 +26,7 @@ const { href, title, image, decoration } = Astro.props;
   }
   h3 {
     padding: var(--space-sm);
+    font-size: var(--text-ms);
   }
 
   .link-card {
@@ -36,6 +37,10 @@ const { href, title, image, decoration } = Astro.props;
     list-style: none;
     min-height: 50rem;
     overflow: hidden;
+  }
+
+  .link-card a:hover {
+    transform: none;
   }
 
   .decoration {
@@ -53,5 +58,11 @@ const { href, title, image, decoration } = Astro.props;
     position: absolute;
     bottom: 0;
     width: 100%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .link-card {
+      min-height: 112vw;
+    }
   }
 </style>

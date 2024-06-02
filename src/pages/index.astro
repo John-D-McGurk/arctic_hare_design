@@ -11,7 +11,7 @@ import Footer from "../components/Footer.astro";
 <Layout title="Home">
   <Nav language="EN" page="Home" />
   <main>
-    <section id="hero" class="">
+    <section id="hero" class="space-lg">
       <img
         id="hero-wave"
         class="wave absolute"
@@ -103,76 +103,79 @@ import Footer from "../components/Footer.astro";
         </ul>
       </div>
     </section>
-    <section id="testimonials-section" class="bg-light">
-      <img
-        id="testimonials-circle"
-        src="index/white-circle.svg"
-        alt=""
-        class="circle absolute"
-      />
-      <img
-        id="testimonials-image"
-        class="absolute"
-        src="index/testimonials-image.svg"
-        alt=""
-      />
-
-      <div class="container flex space-lg">
-        <div>
-          <h2>Testimonials</h2>
-          <ul id="testimonials-container" class="flex-column">
-            <TestimonialCard
-              text="It was a pleasure working with Arctic Hare Design."
-            />
-            <TestimonialCard
-              text="These 2 are bunnies and no questions asked."
-            />
-            <TestimonialCard
-              text="They kept talking in a weird Downton Abbey voice?"
-            />
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section id="lets-talk-section" class="relative">
-      <div class="bg-light space-lg relative">
+    <div class="bg-light">
+      <section id="testimonials-section" class="relative">
         <img
-          id="lets-talk-wave"
-          src="index/lets-talk-wave.svg"
-          class="wave absolute"
+          id="testimonials-circle"
+          src="index/white-circle.svg"
           alt=""
+          class="circle absolute"
         />
         <img
-          id="lets-talk-image"
-          src="index/lets-talk-image.svg"
+          id="testimonials-image"
           class="absolute"
+          src="index/testimonials-image.svg"
           alt=""
         />
 
-        <div class="container flex">
-          <div class="flex-column align-center space-lg">
-            <h2>Not sure where to start?</h2>
-            <div class="btn btn-primary">Let's talk</div>
+        <div class="container flex space-lg">
+          <div>
+            <h2>Testimonials</h2>
+            <ul id="testimonials-container" class="flex-column">
+              <TestimonialCard
+                text="It was a pleasure working with Arctic Hare Design."
+              />
+              <TestimonialCard
+                text="These 2 are bunnies and no questions asked."
+              />
+              <TestimonialCard
+                text="They kept talking in a weird Downton Abbey voice?"
+              />
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="contact-section">
-      <div class="bg-light space-lg">
-        <img
-          id="contact-image"
-          class="absolute"
-          src="index/contact-image.svg"
-          alt=""
-        />
-        <div class="container justify-end">
-          <div id="contact-container" class="flex-column">
-            <h2>Send us a <span class="text-accent">message</span></h2>
-            <Form color="" />
+      </section>
+      <section id="lets-talk-section" class="relative">
+        <div class="space-lg relative">
+          <img
+            id="lets-talk-wave"
+            src="index/lets-talk-wave.svg"
+            class="wave absolute"
+            alt=""
+          />
+          <img
+            id="lets-talk-image"
+            src="index/lets-talk-image.svg"
+            class="absolute"
+            alt=""
+          />
+
+          <div class="container flex">
+            <div class="flex-column align-center space-lg">
+              <h2>Not sure where to start?</h2>
+              <a class="btn btn-primary">Let's talk</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="contact-section">
+        <div class="space-lg">
+          <img
+            id="contact-image"
+            class="absolute"
+            src="index/contact-image.svg"
+            alt=""
+          />
+          <div class="container justify-end">
+            <div id="contact-container" class="flex-column">
+              <h2>Send us a <span class="text-accent">message</span></h2>
+              <Form color="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
     <Footer language="EN" />
   </main>
 </Layout>
@@ -181,7 +184,7 @@ import Footer from "../components/Footer.astro";
   #hero {
     box-sizing: border-box;
     color: var(--light);
-    height: calc(100vh - var(--nav-height));
+    min-height: calc(100vh - var(--nav-height));
     position: relative;
     padding-top: var(--space-lg);
   }
@@ -233,6 +236,8 @@ import Footer from "../components/Footer.astro";
   }
 
   #testimonials-section {
+    max-width: 100%;
+    overflow: hidden;
   }
 
   #testimonials-section div {
@@ -247,7 +252,7 @@ import Footer from "../components/Footer.astro";
   }
 
   #testimonials-image {
-    max-width: 40%;
+    max-width: 35%;
     max-height: 80%;
     top: var(--space-lg);
     left: var(--space-lg);
@@ -257,10 +262,6 @@ import Footer from "../components/Footer.astro";
     width: 55%;
     top: var(--space-xl);
     transform: translateX(-15%);
-  }
-
-  #lets-talk-section {
-    z-index: -1;
   }
 
   #lets-talk-section > div {
@@ -283,5 +284,88 @@ import Footer from "../components/Footer.astro";
   #contact-image {
     left: var(--space-lg);
     max-height: 75%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    #hero {
+      display: flex;
+      justify-content: center;
+      padding-bottom: var(--space-md);
+    }
+    #hero .container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    #hero-image {
+      width: min(60vw, 60rem);
+    }
+
+    #hero-wave {
+      min-height: 30rem;
+    }
+
+    #card-container {
+      flex-direction: column;
+    }
+
+    #projects-section h2 {
+      padding: 0 var(--space-xs);
+    }
+
+    #testimonials-section div {
+      margin: unset;
+      width: unset;
+    }
+
+    #testimonials-image {
+      transform: scaleX(-1);
+      left: unset;
+      right: var(--space-sm);
+      max-width: 30vw;
+    }
+
+    #testimonials-circle {
+      left: unset;
+      right: calc(-1 * var(--space-sm));
+      transform: translateX(15%);
+      top: var(--space-lg);
+    }
+
+    #contact-container {
+      width: 100%;
+      padding-bottom: 90rem;
+    }
+
+    #contact-image {
+      height: 80rem;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #lets-talk-section .relative {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0;
+      gap: 0;
+    }
+
+    #lets-talk-section .relative .space-lg {
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    #lets-talk-image {
+      position: relative;
+      max-width: 75%;
+      right: unset;
+    }
+
+    #lets-talk-wave {
+      height: 70%;
+    }
   }
 </style>

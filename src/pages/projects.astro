@@ -48,7 +48,7 @@ import Footer from "../components/Footer.astro";
                   href="/"
                 />
               </div>
-              <div id="arctic_hare_v1">
+              <div id="swiftbid">
                 <BentoCard
                   image="projects/swiftbid.png"
                   title="SwiftBid"
@@ -118,5 +118,24 @@ import Footer from "../components/Footer.astro";
   }
 
   .bento-container {
+  }
+
+  @media only screen and (max-width: 768px) {
+    #bento-top {
+      height: 22vw;
+    }
+
+    #bento-bottom {
+      flex-direction: column;
+      height: 85vw;
+    }
+
+    #mamrot {
+      flex-grow: 1.7;
+    }
+
+    #bento-bottom-right {
+      flex-direction: row;
+    }
   }
 </style>

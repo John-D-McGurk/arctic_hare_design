@@ -9,6 +9,12 @@ const { language, page } = Astro.props;
 
 <nav class="align-center">
   <img src="/logo.svg" alt="" />
+  <div id="hamburger-icon">
+    <div id="line-1" class="animation-off"></div>
+    <div id="line-2" class="animation-off"></div>
+    <div id="line-3" class="animation-off"></div>
+    <div id="line-4" class="animation-off"></div>
+  </div>
   <div id="group" class="align-center">
     <ul id="links" class="align-center">
       <li><a href="/">Home</a></li>
@@ -18,20 +24,19 @@ const { language, page } = Astro.props;
     <a href="/contact" id="contact" class="btn btn-primary">Contact us</a>
     <div id="dropdown">
       <span data-lang={language}
-        >{language} <img src="chevron-down.svg" alt="" /></span
+        >{language}<img src="chevron-down.svg" alt="" /></span
       >
       <div id="dropdown-contents" class="flex-column">
-        <a data-lang="EN">EN</a>
-        <a data-lang="NO">NO</a>
-        <a data-lang="BG">BG</a>
-        <a data-lang="RU">RU</a>
+        <a href="" data-lang="EN">EN</a>
+        <a href="" data-lang="NO">NO</a>
+        <a href="" data-lang="BG">BG</a>
       </div>
     </div>
   </div>
 </nav>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function dropdown() {
     const dropdownContents = document.querySelector("#dropdown"),
       currentLang = dropdownContents.querySelector("span"),
       dropdownItems = dropdownContents.querySelectorAll("a");
@@ -41,6 +46,23 @@ const { language, page } = Astro.props;
         item.remove();
       }
     });
+  }
+
+  function hamburger() {
+    const hamburgerIcon = document.querySelector("#hamburger-icon"),
+      group = document.querySelector("#group");
+    hamburgerIcon.addEventListener("click", () => {
+      hamburgerIcon.classList.toggle("active");
+      group.classList.toggle("active");
+      hamburgerIcon
+        .querySelectorAll(".animation-off")
+        .forEach((element) => element.classList.remove("animation-off"));
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    dropdown();
+    hamburger();
   });
 </script>
 <style>
@@ -106,5 +128,236 @@ const { language, page } = Astro.props;
   #dropdown img {
     padding-left: 0.5rem;
     transform: translateY(-50%);
+  }
+
+  @media only screen and (max-width: 768px) {
+    :root {
+      --hamburger-width: 6rem;
+      --hamburger-height: 4rem;
+      --half-hamburger-height: calc(var(--hamburger-height) / 2);
+      --third-hamburger-height: calc(var(--hamburger-height) / 3);
+    }
+
+    #hamburger-icon {
+      display: unset;
+      position: absolute;
+      width: var(--hamburger-width);
+      height: var(--hamburger-height);
+      cursor: pointer;
+      top: 2.5rem;
+      right: 2.5rem;
+      z-index: 10000;
+    }
+
+    #hamburger-icon div {
+      background: #fff;
+      width: 100%;
+      height: 0.3rem;
+      position: absolute;
+      border-radius: 0.3rem;
+      box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    #hamburger-icon #line-1 {
+      animation: line-1-rev 0.6s;
+      top: 0;
+    }
+
+    #hamburger-icon #line-2 {
+      animation: line-2-rev 0.6s;
+      top: var(--third-hamburger-height);
+    }
+    #hamburger-icon #line-3 {
+      animation: line-2-rev 0.6s;
+      top: calc(var(--third-hamburger-height) * 2);
+    }
+
+    #hamburger-icon #line-4 {
+      animation: line-3-rev 0.6s;
+      top: var(--hamburger-height);
+    }
+
+    #hamburger-icon.active #line-1 {
+      transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+      animation: line-1 0.6s;
+    }
+
+    #hamburger-icon.active #line-2 {
+      transform: scale(0);
+      animation: line-2 0.6s;
+    }
+
+    #hamburger-icon.active #line-3 {
+      transform: scale(0);
+      animation: line-2 0.6s;
+    }
+
+    #hamburger-icon.active #line-4 {
+      transform: translate(0, calc(var(--half-hamburger-height) * -1))
+        rotate(135deg);
+      animation: line-3 0.6s;
+    }
+
+    @keyframes line-1 {
+      from {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(0, var(--half-hamburger-height));
+      }
+
+      to {
+        transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+      }
+    }
+
+    @keyframes line-2 {
+      from {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(0);
+      }
+    }
+
+    @keyframes line-3 {
+      from {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(0, calc(var(--half-hamburger-height) * -1));
+      }
+
+      to {
+        transform: translate(0, calc(var(--half-hamburger-height) * -1))
+          rotate(135deg);
+      }
+    }
+
+    @keyframes line-1-rev {
+      from {
+        transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+      }
+
+      50% {
+        transform: translate(0, var(--half-hamburger-height));
+      }
+
+      to {
+        transform: translate(0, 0px);
+      }
+    }
+
+    @keyframes line-2-rev {
+      from {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes line-3-rev {
+      from {
+        transform: translate(0, calc(var(--half-hamburger-height) * -1))
+          rotate(135deg);
+      }
+
+      50% {
+        transform: translate(0, calc(var(--half-hamburger-height) * -1));
+      }
+
+      to {
+        transform: translate(0, 0px);
+      }
+    }
+
+    .animation-off {
+      -webkit-animation: none !important;
+      animation: none !important;
+    }
+
+    #group,
+    #links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #links {
+      padding: 0;
+      margin: 0;
+    }
+
+    #group {
+      transform: translateX(100%);
+      transition: transform 0.8s;
+      background: var(--black);
+      z-index: 1000;
+      position: fixed;
+      width: 100vw;
+      height: 100lvh;
+      top: 0;
+      left: 0;
+      padding-left: var(--space-lg);
+      padding-top: var(--space-xl);
+      font-size: var(--text-lg);
+    }
+
+    .btn-primary {
+      font-size: var(--text-lg);
+      transform: translateX(-6rem);
+      padding: 3rem 6rem;
+      border-radius: 50rem;
+    }
+
+    #group.active {
+      transform: none;
+    }
+
+    #dropdown {
+      font-size: var(--text-md);
+      font-family: "champagne_regular";
+    }
+
+    #dropdown span::after,
+    #dropdown a:not(:last-child):after {
+      content: "|";
+      padding-left: 0.4rem;
+    }
+
+    #dropdown-contents {
+      flex-direction: row;
+      position: relative;
+      display: inline;
+    }
+
+    #dropdown-contents a {
+      padding: 0;
+      max-height: unset;
+    }
+
+    #dropdown-contents a:hover {
+      background: unset;
+    }
+
+    #dropdown:hover #dropdown-contents {
+      max-height: 200px;
+    }
+
+    #dropdown img {
+      display: none;
+    }
   }
 </style>
