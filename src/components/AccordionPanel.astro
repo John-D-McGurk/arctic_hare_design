@@ -20,9 +20,11 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
   </div>
   <div class="panel-content relative">
     <div>
-      <img class="absolute wave panel-wave" src={wave} alt="" />
-      <img class="absolute panel-image" src={image} alt="" />
-      <ContentComponent />
+      <div class="panel-inner">
+        <img class="absolute wave panel-wave" src={wave} alt="" />
+        <img class="absolute panel-image" src={image} alt="" />
+        <ContentComponent />
+      </div>
     </div>
   </div>
 </div>
@@ -32,7 +34,19 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
 
   panelHeads.forEach((panelHead) => {
     panelHead.addEventListener("click", () => {
-      panelHead.closest(".panel-container").classList.toggle("active");
+      const container = panelHead.closest(".panel-container");
+      container.classList.toggle("active");
+      const innerContent = container.querySelector(
+          ".panel-inner"
+        ) as HTMLElement,
+        wave = container.querySelector(".panel-wave") as HTMLElement,
+        image = container.querySelector(".panel-image") as HTMLElement;
+      let imageTop = innerContent.offsetHeight - image.offsetHeight - 60;
+      if (imageTop < 0) {
+        imageTop = 0;
+      }
+      wave.style.height = `${innerContent.offsetHeight}px`;
+      image.style.top = `${imageTop}px`;
     });
   });
 </script>
@@ -77,6 +91,10 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
     padding: 0 var(--space-sm);
   }
 
+  .panel-inner {
+    padding-bottom: var(--space-sm);
+  }
+
   .panel-content div {
     overflow: hidden;
     transition: 0s;
@@ -96,8 +114,6 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
   }
   .panel-image {
     right: 0;
-    top: 0%;
-    height: 50rem;
     max-width: 35%;
   }
 
@@ -148,12 +164,8 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
       display: none;
     }
 
-    .panel-wave {
-      display: none;
-    }
-
     .panel-image {
-      display: none;
+      max-width: 22%;
     }
   }
 </style>

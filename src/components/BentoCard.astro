@@ -48,4 +48,19 @@ const { image, title, href } = Astro.props;
   a:hover img {
     transform: scale(1.1);
   }
+
+  @media only screen and (max-width: 768px) {
+    #hover-layer {
+      opacity: 1;
+    }
+
+    #hover-layer h2 {
+      font-size: var(--text-md);
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    #hover-layer h2 {
+      font-size: var(--text-sm);
+    }
+  }
 </style>

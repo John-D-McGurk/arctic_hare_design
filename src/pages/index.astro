@@ -39,10 +39,9 @@ import Footer from "../components/Footer.astro";
             Big or Small, it doesn't matter, we will help your business grow.
           </h2>
           <p>
-            Forget fluffy marketing plans. We create online strategies that
-            deliver real growth. Our team handles all the techy stuff -
-            websites, e-commerce, SEO, social, video, even your brand - so you
-            can focus on what you do best.
+            Our expertly designed websites can significantly enhance your
+            business growth by boosting online visibility, attracting more
+            customers, and providing a seamless user experience.
           </p>
         </div>
         <ul id="card-container" class="flex">
@@ -160,7 +159,7 @@ import Footer from "../components/Footer.astro";
       </section>
 
       <section id="contact-section">
-        <div class="space-lg">
+        <div class="space-lg relative">
           <img
             id="contact-image"
             class="absolute"
@@ -286,6 +285,16 @@ import Footer from "../components/Footer.astro";
     max-height: 75%;
   }
 
+  @media only screen and (max-width: 1200px) {
+    #lets-talk-section > .space-lg {
+      padding-top: 0;
+    }
+
+    #lets-talk-image {
+      width: 40%;
+      right: var(--space-sm);
+    }
+  }
   @media only screen and (max-width: 768px) {
     #hero {
       display: flex;
