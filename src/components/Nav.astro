@@ -10,12 +10,12 @@ const { language, page } = Astro.props;
 <nav class="align-center">
   <img src="/logo.svg" alt="" />
   <div id="hamburger-icon">
-    <div id="line-1" class="animation-off"></div>
-    <div id="line-2" class="animation-off"></div>
-    <div id="line-3" class="animation-off"></div>
-    <div id="line-4" class="animation-off"></div>
+    <div id="line-1" class="animation animation-off"></div>
+    <div id="line-2" class="animation animation-off"></div>
+    <div id="line-3" class="animation animation-off"></div>
+    <div id="line-4" class="animation animation-off"></div>
   </div>
-  <div id="group" class="align-center">
+  <div id="group" class="align-center animation animation-off">
     <ul id="links" class="align-center">
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
@@ -50,13 +50,24 @@ const { language, page } = Astro.props;
 
   function hamburger() {
     const hamburgerIcon = document.querySelector("#hamburger-icon"),
-      group = document.querySelector("#group");
+      group = document.querySelector("#group"),
+      animationItems = document.querySelectorAll(".animation");
     hamburgerIcon.addEventListener("click", () => {
       hamburgerIcon.classList.toggle("active");
       group.classList.toggle("active");
-      hamburgerIcon
-        .querySelectorAll(".animation-off")
-        .forEach((element) => element.classList.remove("animation-off"));
+
+      animationItems.forEach((element) =>
+        element.classList.remove("animation-off")
+      );
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 767) {
+          animationItems.forEach((element) => {
+            element.classList.add("animation-off");
+            hamburgerIcon.classList.remove("active");
+            group.classList.remove("active");
+          });
+        }
+      });
     });
   }
 
@@ -130,6 +141,13 @@ const { language, page } = Astro.props;
     transform: translateY(-50%);
   }
 
+  @media only screen and (max-width: 1200px) {
+    #group,
+    #links,
+    .btn-primary {
+      gap: var(--space-md);
+    }
+  }
   @media only screen and (max-width: 768px) {
     :root {
       --hamburger-width: 6rem;
@@ -287,12 +305,14 @@ const { language, page } = Astro.props;
     .animation-off {
       -webkit-animation: none !important;
       animation: none !important;
+      transition: 0s !important;
     }
 
     #group,
     #links {
       flex-direction: column;
       align-items: flex-start;
+      font-size: var(--text-xl);
     }
 
     #links {
@@ -318,6 +338,7 @@ const { language, page } = Astro.props;
     .btn-primary {
       font-size: var(--text-lg);
       transform: translateX(-6rem);
+      transition: 0s;
       padding: 3rem 6rem;
       border-radius: 50rem;
     }

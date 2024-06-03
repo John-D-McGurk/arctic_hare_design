@@ -10,6 +10,12 @@ import Footer from "../components/Footer.astro";
   <main>
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="services/header-wave.svg" alt="" />
+      <img
+        id="header-image"
+        class="absolute"
+        src="services/header-image.svg"
+        alt=""
+      />
       <div class="container">
         <h1>Services</h1>
       </div>
@@ -19,17 +25,24 @@ import Footer from "../components/Footer.astro";
         <AccordionPanel
           title="Design and Development"
           fileName="design-development"
+          client:load
         />
         <AccordionPanel
           title="Website Maintenance"
           fileName="website-maintenance"
+          client:load
         />
-        <AccordionPanel title="Design and Print" fileName="design-print" />
+        <AccordionPanel
+          title="Design and Print"
+          fileName="design-print"
+          client:load
+        />
         <AccordionPanel
           title="Social Media Management"
           fileName="media-management"
+          client:load
         />
-        <AccordionPanel title="SEO" fileName="seo" />
+        <AccordionPanel title="SEO" fileName="seo" client:load />
       </div>
     </div>
     <Footer language="EN" />
@@ -40,11 +53,24 @@ import Footer from "../components/Footer.astro";
     color: var(--white);
   }
 
-  .container {
+  .bg-white .container {
     padding: var(--space-lg) 0;
   }
 
-  #wave-container img {
-    max-height: 70%;
+  #wave-container .wave {
+    max-height: 80%;
+  }
+
+  #header-image {
+    right: var(--space-xl);
+    bottom: 0;
+    height: 60;
+    max-width: 50%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #header-image {
+      right: var(--space-xs);
+    }
   }
 </style>

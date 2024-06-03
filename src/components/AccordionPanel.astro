@@ -19,9 +19,11 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
     </h2>
   </div>
   <div class="panel-content relative">
-    <img class="absolute wave panel-wave" src={wave} alt="" />
-    <img class="absolute panel-image" src={image} alt="" />
-    <ContentComponent />
+    <div>
+      <img class="absolute wave panel-wave" src={wave} alt="" />
+      <img class="absolute panel-image" src={image} alt="" />
+      <ContentComponent />
+    </div>
   </div>
 </div>
 
@@ -68,27 +70,35 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
   }
 
   .panel-content {
-    height: 0;
-    transition: height 0.9s;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s;
     overflow: hidden;
     padding: 0 var(--space-sm);
   }
 
+  .panel-content div {
+    overflow: hidden;
+    transition: 0s;
+  }
+
   .panel-container.active .panel-content {
-    height: 90rem;
+    grid-template-rows: 1fr;
   }
 
   .panel-wave {
-    height: 90rem;
+    height: 65rem;
+    min-height: 100%;
+
     width: 100%;
     top: 0;
     right: 0;
   }
   .panel-image {
     right: 0;
-    top: 25rem;
+    top: 0%;
     height: 50rem;
-    max-width: 40%;
+    max-width: 35%;
   }
 
   .panel-content ol {
@@ -96,7 +106,8 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
     counter-reset: counter;
     padding-left: var(--space-lg);
     width: 50%;
-    padding-bottom: var(--space-sm);
+    padding-bottom: 0;
+    margin: 0;
   }
 
   .panel-content li {
@@ -113,5 +124,36 @@ const contentFile = await import(`../service-accordion/${fileName}.md`),
     font-family: "Fugaz One";
     display: inline-block;
     transform: translateY(-21%);
+  }
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: var(--text-md);
+    }
+
+    h3 {
+      font-size: var(--text-sm);
+    }
+
+    .panel-container {
+      margin: var(--space-md) var(--space-xs);
+    }
+
+    .panel-content ol {
+      padding-left: 0;
+      width: 80%;
+    }
+
+    .panel-content li::before {
+      display: none;
+    }
+
+    .panel-wave {
+      display: none;
+    }
+
+    .panel-image {
+      display: none;
+    }
   }
 </style>
