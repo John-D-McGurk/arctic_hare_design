@@ -57,6 +57,10 @@ import Footer from "../components/Footer.astro";
     padding: var(--space-lg) 0;
   }
 
+  #wave-container {
+    padding-bottom: 30rem;
+  }
+
   #wave-container .wave {
     max-height: 80%;
   }
@@ -69,6 +73,10 @@ import Footer from "../components/Footer.astro";
   }
 
   @media only screen and (max-width: 1200px) {
+    #wave-container {
+      padding-bottom: var(--space-xl);
+    }
+
     #header-image {
       right: var(--space-xs);
     }

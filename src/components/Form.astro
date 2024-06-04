@@ -10,7 +10,7 @@ let buttonColor = "btn-accent";
 if (color === "dark") {
   buttonColor = "btn-primary";
 }
-const buttonClassList = ["btn-sm", buttonColor];
+const buttonClassList = ["btn", buttonColor];
 ---
 
 <form id="contact-form" action="" class:list={classList}>
@@ -27,7 +27,7 @@ const buttonClassList = ["btn-sm", buttonColor];
     ></textarea>
     <span class="placeholder">Message</span>
   </div>
-  <input type="submit" class:list={buttonClassList} value="Contact us" />
+  <input type="submit" class:list={buttonClassList} value="Send" />
 </form>
 
 <style>

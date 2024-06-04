@@ -8,7 +8,7 @@ import Footer from "../components/Footer.astro";
 <Layout title="Contact"
   ><Nav language="EN" page="Contact" />
   <main>
-    <div class="container flex space-lg">
+    <div id="text-form" class="container flex space-lg">
       <div id="main-text" class="flex-column">
         <h1>
           Are you ready for <span class="text-primary">your</span> new <span
@@ -37,7 +37,7 @@ import Footer from "../components/Footer.astro";
       <img class="wave absolute" src="contact/wave.svg" alt="" />
 
       <div class="container align-center">
-        <img src="contact/image.svg" alt="" />
+        <img id="image" src="contact/image.svg" alt="" />
         <p id="large-text">Don't hesitate to ask!</p>
       </div>
     </div>
@@ -83,5 +83,34 @@ import Footer from "../components/Footer.astro";
   #socials {
     display: flex;
     gap: var(--space-sm);
+  }
+
+  @media only screen and (max-width: 768px) {
+    #main-text {
+      width: unset;
+    }
+
+    #wave-container {
+      background: var(--white);
+      padding-top: 0;
+    }
+
+    .wave {
+      top: 0;
+      transform: translateY(-100%);
+      height: var(--space-xl);
+    }
+
+    #wave-container .container {
+      flex-direction: column;
+    }
+
+    #image {
+      max-width: 90%;
+    }
+
+    .flex {
+      flex-direction: column;
+    }
   }
 </style>
