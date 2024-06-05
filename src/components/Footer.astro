@@ -34,12 +34,20 @@ if (language === "NO") {
 <footer class="flex">
   <div class="flex-column">
     <h2>{letsTalk}</h2>
-    <a href="">{phone}: +47 413 92 253</a>
-    <a href="">{email}: arctic.hare.design@gmail.com</a>
+    <a href="tel:004741392253">{phone}: +47 413 92 253</a>
+    <a href="mailto:arctic.hare.design@gmail.com"
+      >{email}: arctic.hare.design@gmail.com</a
+    >
     <div id="socials" class="flex">
-      <a href=""><img src="/facebook.svg" alt="" /></a>
-      <a href=""><img src="/instagram.svg" alt="" /></a>
-      <a href=""><img src="/linkedin.svg" alt="" /></a>
+      <a href="https://www.facebook.com/arctic.hare.design"
+        ><img src="/facebook.svg" alt="Company Facebook" loading="lazy" /></a
+      >
+      <a href=""
+        ><img src="/instagram.svg" alt="Company Instagram" loading="lazy" /></a
+      >
+      <a href=""
+        ><img src="/linkedin.svg" alt="Company LinkedIn" loading="lazy" /></a
+      >
     </div>
   </div>
   <nav class="flex-column">
@@ -48,7 +56,14 @@ if (language === "NO") {
     <a href={projectsLink}>{projects}</a>
     <a href={contactLink}>{contactUs}</a>
   </nav>
-  <img id="logo" src="/logo-text.svg" alt="" />
+  <a href={homeLink}
+    ><img
+      id="logo"
+      src="/logo-text.svg"
+      alt="Arctic Hare Design - Home"
+      loading="lazy"
+    /></a
+  >
 </footer>
 
 <style>

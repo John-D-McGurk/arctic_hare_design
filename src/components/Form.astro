@@ -26,18 +26,65 @@ if (language === "NO") {
 }
 ---
 
+<script>
+  function sendEmail() {
+    const url =
+        "https://script.google.com/macros/s/AKfycbzIhFof1kn4mqW-Rfs7tfBI4zCA3Ka45O0PUvF8FwWL7KPMrn6o2qVzE0QMzjl-FgNuVQ/exec",
+      recipient = "arctic.hare.design@gmail.com",
+      contactForm = document.querySelector("#contact-form");
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let message = contactForm.querySelector("#message") as HTMLInputElement,
+        userEmail = contactForm.querySelector("#email") as HTMLInputElement,
+        userName = contactForm.querySelector("#name") as HTMLInputElement;
+      if (userEmail.value == "" || message.value == "") {
+        return alert(
+          "Email not sent. Please ensure all required fields are filled in."
+        );
+      }
+
+      fetch(
+        url +
+          "?q=" +
+          JSON.stringify([
+            recipient,
+            `E-Post fra ${userEmail.value}`,
+            `Epost fra nettsidens kontakt form.\n\n${message.value}\n\nSendt fra: ${userName.value}`,
+          ])
+      ).then(() => {
+        // openModal();
+
+        message.value = "";
+        userEmail.value = "";
+        userName.value = "";
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    sendEmail();
+  });
+</script>
+
 <form id="contact-form" action="" class:list={classList}>
   <div class="input-wrapper">
-    <input class="text-input" type="text" placeholder=" " />
+    <input id="name" class="text-input" type="text" placeholder=" " />
     <span class="placeholder">{name}</span>
   </div>
   <div class="input-wrapper">
-    <input class="text-input" type="text" placeholder=" " />
+    <input id="email" class="text-input" type="text" placeholder=" " />
     <span class="placeholder">{email}</span>
   </div>
   <div class="input-wrapper">
-    <textarea class="text-input" name="" id="" rows="6" placeholder=" "
-    ></textarea>
+    <textarea
+      id="message"
+      class="text-input"
+      name=""
+      id=""
+      rows="6"
+      placeholder=" "></textarea>
     <span class="placeholder">{message}</span>
   </div>
   <input type="submit" class:list={buttonClassList} value="Send" />
