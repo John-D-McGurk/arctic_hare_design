@@ -1,9 +1,10 @@
 ---
 interface Props {
   color: string;
+  language: string;
 }
 
-const { color } = Astro.props,
+const { color, language } = Astro.props,
   classList = ["flex-column", color];
 
 let buttonColor = "btn-accent";
@@ -11,21 +12,33 @@ if (color === "dark") {
   buttonColor = "btn-primary";
 }
 const buttonClassList = ["btn", buttonColor];
+
+let name, email, message;
+
+if (language === "NO") {
+  name = "Navn";
+  email = "E-post";
+  message = "Melding";
+} else {
+  name = "Name";
+  email = "E-mail";
+  message = "Message";
+}
 ---
 
 <form id="contact-form" action="" class:list={classList}>
   <div class="input-wrapper">
     <input class="text-input" type="text" placeholder=" " />
-    <span class="placeholder">Name</span>
+    <span class="placeholder">{name}</span>
   </div>
   <div class="input-wrapper">
     <input class="text-input" type="text" placeholder=" " />
-    <span class="placeholder">E-mail</span>
+    <span class="placeholder">{email}</span>
   </div>
   <div class="input-wrapper">
     <textarea class="text-input" name="" id="" rows="6" placeholder=" "
     ></textarea>
-    <span class="placeholder">Message</span>
+    <span class="placeholder">{message}</span>
   </div>
   <input type="submit" class:list={buttonClassList} value="Send" />
 </form>

@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Form from "../components/Form.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import Form from "../../components/Form.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Contact"
-  ><Nav language="EN" page="Contact" />
+  ><Nav language="EN" page="contact" />
   <main>
     <div id="text-form" class="container flex space-lg">
       <div id="main-text" class="flex-column">
@@ -24,20 +24,20 @@ import Footer from "../components/Footer.astro";
         <a href="">E-mail us at: arctic.hare.design@gmail.com</a>
         <span>Follow us on:</span>
         <div id="socials">
-          <a href=""><img src="facebook.svg" alt="" /></a>
-          <a href=""><img src="instagram.svg" alt="" /></a>
-          <a href=""><img src="linkedin.svg" alt="" /></a>
+          <a href=""><img src="/facebook.svg" alt="" /></a>
+          <a href=""><img src="/instagram.svg" alt="" /></a>
+          <a href=""><img src="/linkedin.svg" alt="" /></a>
         </div>
       </div>
       <div id="form-container">
-        <Form color="dark" />
+        <Form color="dark" language="EN" />
       </div>
     </div>
     <div id="wave-container" class="relative align-center">
-      <img class="wave absolute" src="contact/wave.svg" alt="" />
+      <img class="wave absolute" src="/contact/wave.svg" alt="" />
 
       <div class="container align-center">
-        <img id="image" src="contact/image.svg" alt="" />
+        <img id="image" src="/contact/image.svg" alt="" />
         <p id="large-text">Don't hesitate to ask!</p>
       </div>
     </div>

@@ -1,17 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import BentoCard from "../components/BentoCard.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import BentoCard from "../../components/BentoCard.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Projects"
-  ><Nav language="EN" page="Projects" />
+  ><Nav language="NO" page="projects" />
   <main>
     <div id="wave-container" class="relative space-lg">
-      <img class="wave absolute" src="projects/wave.svg" alt="" />
+      <img class="wave absolute" src="/projects/wave.svg" alt="" />
       <div class="container">
-        <h1>Our Work</h1>
+        <h1>Vårt Arbeid</h1>
       </div>
     </div>
     <div class="bg-white">
@@ -20,13 +20,13 @@ import Footer from "../components/Footer.astro";
           <div id="bento-top" class="flex bento">
             <div id="john" class="bento-container flex">
               <BentoCard
-                image="projects/john.png"
+                image="/projects/john.png"
                 title="John McGurk"
                 href="https://johnmcgurk.no"
               />
             </div><div id="urban-fox" class="bento-container flex">
               <BentoCard
-                image="projects/urban_fox.png"
+                image="/projects/urban_fox.png"
                 title="Urban Fox Photos"
                 href="/"
               />
@@ -35,7 +35,7 @@ import Footer from "../components/Footer.astro";
           <div id="bento-bottom" class="flex bento">
             <div id="mamrot" class="bento-container flex">
               <BentoCard
-                image="projects/mamrot_pro_rens.png"
+                image="/projects/mamrot_pro_rens.png"
                 title="Mamrot Car Spa"
                 href="https://mamrotcarspa.no"
               />
@@ -43,14 +43,14 @@ import Footer from "../components/Footer.astro";
             <div id="bento-bottom-right" class="flex-column bento">
               <div id="arctic_hare_v1">
                 <BentoCard
-                  image="projects/arctic_hare_design_v1.png"
+                  image="/projects/arctic_hare_design_v1.png"
                   title="Portfolio V1"
                   href="/"
                 />
               </div>
               <div id="swiftbid">
                 <BentoCard
-                  image="projects/swiftbid.png"
+                  image="/projects/swiftbid.png"
                   title="SwiftBid"
                   href="/"
                 />
@@ -61,7 +61,7 @@ import Footer from "../components/Footer.astro";
       </div>
     </div>
   </main>
-  <Footer language="EN" />
+  <Footer language="NO" />
 </Layout>
 
 <style>

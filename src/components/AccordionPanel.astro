@@ -2,14 +2,17 @@
 interface Props {
   title: string;
   fileName: string;
+  language: string;
 }
 
-const { fileName, title } = Astro.props;
+const { fileName, title, language } = Astro.props;
 
-const contentFile = await import(`../service-accordion/${fileName}.md`),
+const contentFile = await import(
+    `../service-accordion/${language}/${fileName}.md`
+  ),
   ContentComponent = contentFile.default,
-  wave = `services/${fileName}-wave.svg`,
-  image = `services/${fileName}-image.svg`;
+  wave = `/services/${fileName}-wave.svg`,
+  image = `/services/${fileName}-image.svg`;
 ---
 
 <div class="panel-container">

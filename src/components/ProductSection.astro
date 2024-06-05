@@ -4,20 +4,29 @@ interface Props {
   text: string;
   href: string;
   reverse: boolean;
+  language: string;
 }
 
-const { picture, text, href, reverse } = Astro.props;
-let classList = ["flex", "project-section", "container"];
+const { picture, text, href, reverse, language } = Astro.props;
+let classList = ["align-center", "container"];
 
 if (reverse) {
   classList.push("reverse");
+}
+
+let linkText;
+
+if (language === "NO") {
+  linkText = "Vis nettsiden";
+} else {
+  linkText = "Show website";
 }
 ---
 
 <div class:list={classList}>
   <img src={picture} alt="" />
   <p>{text}</p>
-  <a class="btn-sm btn-accent" href={href}>Read more</a>
+  <a class="btn-sm btn-accent" href={href}>{linkText}</a>
 </div>
 
 <style>
@@ -43,8 +52,14 @@ if (reverse) {
     left: unset;
     right: calc(var(--space-xl) * 2);
   }
+  .container {
+    gap: var(--space-md);
+  }
 
   @media only screen and (max-width: 768px) {
+    .container {
+      gap: var(--space-sm);
+    }
     .reverse {
       flex-direction: column;
     }

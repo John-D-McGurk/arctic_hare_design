@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import AccordionPanel from "../../components/AccordionPanel.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Services">
+  <Nav language="EN" page="services" />
+  <main>
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="/services/header-wave.svg" alt="" />
+      <img
+        id="header-image"
+        class="absolute"
+        src="/services/header-image.svg"
+        alt=""
+      />
+      <div class="container">
+        <h1>Services</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <AccordionPanel
+          title="Design and Development"
+          fileName="design-development"
+          language="EN"
+        />
+        <AccordionPanel
+          title="Website Maintenance"
+          fileName="website-maintenance"
+          language="EN"
+        />
+        <AccordionPanel
+          title="Design and Print"
+          fileName="design-print"
+          language="EN"
+        />
+        <AccordionPanel
+          title="Social Media Management"
+          fileName="media-management"
+          language="EN"
+        />
+        <AccordionPanel title="SEO" fileName="seo" language="EN" />
+      </div>
+    </div>
+    <Footer language="EN" />
+  </main></Layout
+>
+<style>
+  h1 {
+    color: var(--white);
+  }
+
+  .bg-white .container {
+    padding: var(--space-lg) 0;
+  }
+
+  #wave-container {
+    padding-bottom: 30rem;
+  }
+
+  #wave-container .wave {
+    max-height: 80%;
+  }
+
+  #header-image {
+    right: var(--space-xl);
+    bottom: 0;
+    height: 60;
+    max-width: 50%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #wave-container {
+      padding-bottom: var(--space-xl);
+    }
+
+    #header-image {
+      right: var(--space-xs);
+    }
+  }
+</style>

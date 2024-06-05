@@ -1,47 +1,49 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import ProductSection from "../components/ProductSection.astro";
-import TestimonialCard from "../components/TestimonialCard.astro";
-import Form from "../components/Form.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import ProductSection from "../../components/ProductSection.astro";
+import TestimonialCard from "../../components/TestimonialCard.astro";
+import Form from "../../components/Form.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Home">
-  <Nav language="EN" page="Home" />
+  <Nav language="NO" page="" />
   <main>
     <section id="hero" class="space-lg">
       <img
         id="hero-wave"
         class="wave absolute"
-        src="index/hero-wave.svg"
+        src="/index/hero-wave.svg"
         alt=""
       />
       <div class="container center">
         <div class="hero-text flex-column">
           <h1>
-            We make <span class="text-primary">your website</span> from scratch
+            Vi lager <span class="text-primary">din nettside</span> fra bunnen av
           </h1>
           <p>
-            We understand the importance of a website to grow your business and
-            we would like to help you stand out. From brand design to responsive
-            website, we turn your idea into reality.
+            Vi forstår viktigheten av en nettside for å få virksomheten din til
+            å vokse, og vi ønsker å hjelpe deg med å skille deg ut. Fra
+            merkeutforming til responsiv nettside, vi gjør din idé til
+            virkelighet.
           </p>
         </div>
-        <img id="hero-image" src="index/hero-image.svg" alt="" />
+        <img id="hero-image" src="/index/hero-image.svg" alt="" />
       </div>
     </section>
     <section class="bg-white">
       <div class="container flex-column align-center space-lg">
         <div>
           <h2>
-            Big or Small, it doesn't matter, we will help your business grow.
+            Stor eller liten, det spiller ingen rolle, vi vil hjelpe din bedrift
+            å vokse.
           </h2>
           <p>
-            Our expertly designed websites can significantly enhance your
-            business growth by boosting online visibility, attracting more
-            customers, and providing a seamless user experience.
+            Våre profesjonelt designet nettsider kan betydelig forbedre veksten
+            av din bedrift ved å øke synligheten på nett, tiltrekke flere kunder
+            og gi en sømløs brukeropplevelse.
           </p>
         </div>
         <ul id="card-container" class="flex">
@@ -49,53 +51,58 @@ import Footer from "../components/Footer.astro";
             decoration="1"
             href="1"
             title="Design"
-            image="index/design.svg"
+            image="/index/design.svg"
+            language="NO"
           />
           <Card
             decoration="2"
             href="1"
-            title="Web Development"
-            image="index/develop.svg"
+            title="Webutikling"
+            image="/index/develop.svg"
+            language="NO"
           />
           <Card
             decoration="3"
             href="1"
-            title="Brand Identity"
-            image="index/brand.svg"
+            title="Merkeidentitet"
+            image="/index/brand.svg"
+            language="NO"
           />
         </ul>
-        <a href="" class="btn btn-primary">Contact us</a>
+        <a href="" class="btn btn-primary">Kontakt oss</a>
       </div>
     </section>
     <section id="projects-section" class="bg-white">
       <div class="flex-column align-center space-lg">
-        <h2>Here's what we've made so far</h2>
+        <h2>Her er det vi har laget så langt</h2>
         <ul id="projects-container" class="padding-0">
           <li id="projects-wave-container" class="relative">
             <img
               id="projects-wave"
-              src="index/projects-wave.svg"
+              src="/index/projects-wave.svg"
               alt=""
               class="wave absolute"
             />
             <ProductSection
-              picture="index/mamrot-mockup.png"
-              text="An interactive website for a small detailing business in Tromsø"
-              href="1"
+              language="NO"
+              picture="/index/mamrot-mockup.png"
+              text="Vi hadde gleden av å lage en dynamisk og visuelt fengende nettside for Mamrot Car Spa i Tromsø. Vår design blander elegant estetikk med brukervennlig funksjonalitet, og sikrer en engasjerende opplevelse for alle besøkende."
+              href="https://mamrotcarspa.no"
               reverse={false}
             />
           </li>
           <li class="bg-secondary relative">
             <img
               id="projects-circle"
-              src="index/light-circle.svg"
+              src="/index/light-circle.svg"
               alt=""
               class="circle absolute"
             />
             <ProductSection
-              picture="index/mcgurk-mockup.png"
-              text="A portfolio website for a web developer"
-              href="1"
+              language="NO"
+              picture="/index/mcgurk-mockup.png"
+              text="Vi laget en imponerende porteføljenettside for vår utvikler. Siden har en iøynefallende interaktiv bakgrunn som reagerer på musebevegelser, og skaper en fengslende og oppslukende brukeropplevelse."
+              href="https://johnmcgurk.no"
               reverse={true}
             />
           </li>
@@ -106,20 +113,20 @@ import Footer from "../components/Footer.astro";
       <section id="testimonials-section" class="relative">
         <img
           id="testimonials-circle"
-          src="index/white-circle.svg"
+          src="/index/white-circle.svg"
           alt=""
           class="circle absolute"
         />
         <img
           id="testimonials-image"
           class="absolute"
-          src="index/testimonials-image.svg"
+          src="/index/testimonials-image.svg"
           alt=""
         />
 
         <div class="container flex space-lg">
           <div>
-            <h2>Testimonials</h2>
+            <h2>Kundeomtaler</h2>
             <ul id="testimonials-container" class="flex-column">
               <TestimonialCard
                 text="It was a pleasure working with Arctic Hare Design."
@@ -138,21 +145,21 @@ import Footer from "../components/Footer.astro";
         <div class="space-lg relative">
           <img
             id="lets-talk-wave"
-            src="index/lets-talk-wave.svg"
+            src="/index/lets-talk-wave.svg"
             class="wave absolute"
             alt=""
           />
           <img
             id="lets-talk-image"
-            src="index/lets-talk-image.svg"
+            src="/index/lets-talk-image.svg"
             class="absolute"
             alt=""
           />
 
           <div class="container flex">
             <div class="flex-column align-center space-lg">
-              <h2>Not sure where to start?</h2>
-              <a class="btn btn-primary">Let's talk</a>
+              <h2>Usikker på hvor du skal begynne?</h2>
+              <a class="btn btn-primary">Prat med oss</a>
             </div>
           </div>
         </div>
@@ -163,19 +170,19 @@ import Footer from "../components/Footer.astro";
           <img
             id="contact-image"
             class="absolute"
-            src="index/contact-image.svg"
+            src="/index/contact-image.svg"
             alt=""
           />
           <div class="container justify-end">
             <div id="contact-container" class="flex-column">
-              <h2>Send us a <span class="text-accent">message</span></h2>
-              <Form color="" />
+              <h2>Send oss en <span class="text-accent">melding</span></h2>
+              <Form color="" language="NO" />
             </div>
           </div>
         </div>
       </section>
     </div>
-    <Footer language="EN" />
+    <Footer language="NO" />
   </main>
 </Layout>
 

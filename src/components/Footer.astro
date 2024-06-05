@@ -4,26 +4,51 @@ interface Props {
 }
 
 const { language } = Astro.props;
+
+let home, projects, services, contactUs, phone, email, letsTalk;
+
+const homeLink = `/${language}`,
+  projectsLink = `/${language}/projects`,
+  servicesLink = `/${language}/services`,
+  contactLink = `/${language}/contact`;
+
+if (language === "NO") {
+  home = "Hjem";
+  projects = "Prosjekter";
+  services = "Tjenester";
+  contactUs = "Kontakt Oss";
+  phone = "Telefon";
+  email = "E-Post";
+  letsTalk = "Prat med oss";
+} else {
+  home = "Home";
+  projects = "Projects";
+  services = "Services";
+  contactUs = "Contact Us";
+  phone = "Phone";
+  email = "E-mail";
+  letsTalk = "Let's talk";
+}
 ---
 
 <footer class="flex">
   <div class="flex-column">
-    <h2>Let's talk</h2>
-    <a href="">Phone: +47 413 92 253</a>
-    <a href="">E-mail: arctic.hare.design@gmail.com</a>
+    <h2>{letsTalk}</h2>
+    <a href="">{phone}: +47 413 92 253</a>
+    <a href="">{email}: arctic.hare.design@gmail.com</a>
     <div id="socials" class="flex">
-      <a href=""><img src="facebook.svg" alt="" /></a>
-      <a href=""><img src="instagram.svg" alt="" /></a>
-      <a href=""><img src="linkedin.svg" alt="" /></a>
+      <a href=""><img src="/facebook.svg" alt="" /></a>
+      <a href=""><img src="/instagram.svg" alt="" /></a>
+      <a href=""><img src="/linkedin.svg" alt="" /></a>
     </div>
   </div>
   <nav class="flex-column">
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/projects">Projects</a>
-    <a href="/contact">Contact us</a>
+    <a href={homeLink}>{home}</a>
+    <a href={servicesLink}>{services}</a>
+    <a href={projectsLink}>{projects}</a>
+    <a href={contactLink}>{contactUs}</a>
   </nav>
-  <img id="logo" src="logo-text.svg" alt="" />
+  <img id="logo" src="/logo-text.svg" alt="" />
 </footer>
 
 <style>

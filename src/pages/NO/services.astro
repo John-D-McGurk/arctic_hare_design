@@ -1,51 +1,51 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import AccordionPanel from "../components/AccordionPanel.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import AccordionPanel from "../../components/AccordionPanel.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Services">
-  <Nav language="EN" page="Services" />
+  <Nav language="NO" page="services" />
   <main>
     <div id="wave-container" class="relative space-lg">
-      <img class="wave absolute" src="services/header-wave.svg" alt="" />
+      <img class="wave absolute" src="/services/header-wave.svg" alt="" />
       <img
         id="header-image"
         class="absolute"
-        src="services/header-image.svg"
+        src="/services/header-image.svg"
         alt=""
       />
       <div class="container">
-        <h1>Services</h1>
+        <h1>Tjenester</h1>
       </div>
     </div>
     <div class="bg-white">
       <div class="container">
         <AccordionPanel
-          title="Design and Development"
+          title="Design og Utvikling"
           fileName="design-development"
-          client:load
+          language="NO"
         />
         <AccordionPanel
-          title="Website Maintenance"
+          title="Nettstedsvedlikehold"
           fileName="website-maintenance"
-          client:load
+          language="NO"
         />
         <AccordionPanel
-          title="Design and Print"
+          title="Design og Trykk"
           fileName="design-print"
-          client:load
+          language="NO"
         />
         <AccordionPanel
-          title="Social Media Management"
+          title="Sosiale Medier Administrasjon"
           fileName="media-management"
-          client:load
+          language="NO"
         />
-        <AccordionPanel title="SEO" fileName="seo" client:load />
+        <AccordionPanel title="SEO" fileName="seo" language="NO" />
       </div>
     </div>
-    <Footer language="EN" />
+    <Footer language="NO" />
   </main></Layout
 >
 <style>

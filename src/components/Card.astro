@@ -4,9 +4,16 @@ interface Props {
   image: string;
   href: string;
   decoration: string;
+  language: string;
 }
 
-const { href, title, image, decoration } = Astro.props;
+const { href, title, image, decoration, language } = Astro.props;
+let readMore;
+if (language === "NO") {
+  readMore = "Les mer";
+} else {
+  readMore = "Read more";
+}
 ---
 
 <li class="link-card">
@@ -16,7 +23,7 @@ const { href, title, image, decoration } = Astro.props;
       {title}
     </h3>
     <img src={image} alt="" />
-    <span class="btn-sm btn-primary"> Read more</span>
+    <span class="btn-sm btn-primary"> {readMore}</span>
   </a>
 </li>
 <style>

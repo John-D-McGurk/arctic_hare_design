@@ -5,6 +5,24 @@ interface Props {
 }
 
 const { language, page } = Astro.props;
+let home, projects, services, contactUs;
+
+const homeLink = `/${language}`,
+  projectsLink = `/${language}/projects`,
+  servicesLink = `/${language}/services`,
+  contactLink = `/${language}/contact`;
+
+if (language === "NO") {
+  home = "Hjem";
+  projects = "Prosjekter";
+  services = "Tjenester";
+  contactUs = "Kontakt Oss";
+} else {
+  home = "Home";
+  projects = "Projects";
+  services = "Services";
+  contactUs = "Contact Us";
+}
 ---
 
 <nav class="align-center">
@@ -17,19 +35,19 @@ const { language, page } = Astro.props;
   </div>
   <div id="group" class="align-center animation animation-off">
     <ul id="links" class="align-center">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/services">Services</a></li>
+      <li><a href={homeLink}>{home}</a></li>
+      <li><a href={projectsLink}>{projects}</a></li>
+      <li><a href={servicesLink}>{services}</a></li>
     </ul>
-    <a href="/contact" id="contact" class="btn btn-primary">Contact us</a>
+    <a href={contactLink} id="contact" class="btn btn-primary">{contactUs}</a>
     <div id="dropdown">
       <span data-lang={language}
-        >{language}<img src="chevron-down.svg" alt="" /></span
+        >{language}<img src="/chevron-down.svg" alt="" /></span
       >
       <div id="dropdown-contents" class="flex-column">
-        <a href="" data-lang="EN">EN</a>
-        <a href="" data-lang="NO">NO</a>
-        <a href="" data-lang="BG">BG</a>
+        <a href={`/EN/${page}`} data-lang="EN">EN</a>
+        <a href={`/NO/${page}`} data-lang="NO">NO</a>
+        <a href={`/BG/${page}`} data-lang="BG">BG</a>
       </div>
     </div>
   </div>
