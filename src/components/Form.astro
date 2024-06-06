@@ -13,16 +13,23 @@ if (color === "dark") {
 }
 const buttonClassList = ["btn", buttonColor];
 
-let name, email, message;
+let name, email, message, send;
 
 if (language === "NO") {
   name = "Navn";
   email = "E-post";
   message = "Melding";
+  send = "Send";
+} else if (language === "BG") {
+  name = "Име";
+  email = "Имейл";
+  message = "Съобщение";
+  send = "Изпрати";
 } else {
   name = "Name";
   email = "E-mail";
   message = "Message";
+  send = "Send";
 }
 ---
 
@@ -87,7 +94,7 @@ if (language === "NO") {
       placeholder=" "></textarea>
     <span class="placeholder">{message}</span>
   </div>
-  <input type="submit" class:list={buttonClassList} value="Send" />
+  <input type="submit" class:list={buttonClassList} value={send} />
 </form>
 
 <style>

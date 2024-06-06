@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import AccordionPanel from "../../components/AccordionPanel.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Services">
+  <Nav language="BG" page="services" />
+  <main class="BG">
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="/services/header-wave.svg" alt="" />
+      <img
+        id="header-image"
+        class="absolute"
+        src="/services/header-image.svg"
+        alt=""
+      />
+      <div class="container">
+        <h1>Услуги</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <AccordionPanel
+          title="Дизайн и разработка"
+          fileName="design-development"
+          language="BG"
+        />
+        <AccordionPanel
+          title="Поддръжка на уебсайт"
+          fileName="website-maintenance"
+          language="BG"
+        />
+        <AccordionPanel
+          title="Дизайн и печат"
+          fileName="design-print"
+          language="BG"
+        />
+        <AccordionPanel
+          title="Управление на социални медии"
+          fileName="media-management"
+          language="BG"
+        />
+        <AccordionPanel title="SEO оптимизация" fileName="seo" language="BG" />
+      </div>
+    </div>
+    <Footer language="BG" />
+  </main></Layout
+>
+<style>
+  h1 {
+    color: var(--white);
+  }
+
+  .bg-white .container {
+    padding: var(--space-lg) 0;
+  }
+
+  #wave-container {
+    padding-bottom: 30rem;
+  }
+
+  #wave-container .wave {
+    max-height: 80%;
+  }
+
+  #header-image {
+    right: var(--space-xl);
+    bottom: 0;
+    height: 60;
+    max-width: 50%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #wave-container {
+      padding-bottom: var(--space-xl);
+    }
+
+    #header-image {
+      right: var(--space-xs);
+    }
+  }
+</style>

@@ -6,6 +6,9 @@ import TestimonialCard from "../../components/TestimonialCard.astro";
 import Form from "../../components/Form.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
+
+import heroImage from "../../assets/index/hero-image.svg";
 ---
 
 <Layout title="Home">
@@ -29,14 +32,20 @@ import Footer from "../../components/Footer.astro";
             website, we turn your idea into reality.
           </p>
         </div>
-        <img id="hero-image" src="/index/hero-image.svg" alt="" />
+        <Image
+          id="hero-image"
+          src={heroImage}
+          alt=""
+          widths={[385, 485, 500]}
+          sizes={`(max-width: 768px), (max-width 1199px), (min-width:1200px)`}
+        />
       </div>
     </section>
     <section class="bg-white">
       <div class="container flex-column align-center space-lg">
         <div>
           <h2>
-            Big or Small, it doesn't matter, we will help your business grow.
+            Big or Small, it doesn't matter. We will help your business grow.
           </h2>
           <p>
             Our expertly designed websites can significantly enhance your

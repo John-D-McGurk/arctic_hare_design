@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BentoCard from "../../components/BentoCard.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Projects"
+  ><Nav language="BG" page="projects" />
+  <main class="BG">
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="/projects/wave.svg" alt="" />
+      <div class="container">
+        <h1>Нашите клиенти</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <div id="bento-box" class="flex-column bento">
+          <div id="bento-top" class="flex bento">
+            <div id="john" class="bento-container flex">
+              <BentoCard
+                image="/projects/john.png"
+                title="John McGurk"
+                href="https://johnmcgurk.no"
+              />
+            </div><div id="urban-fox" class="bento-container flex">
+              <BentoCard
+                image="/projects/urban_fox.png"
+                title="Urban Fox Photos"
+                href="/"
+              />
+            </div>
+          </div>
+          <div id="bento-bottom" class="flex bento">
+            <div id="mamrot" class="bento-container flex">
+              <BentoCard
+                image="/projects/mamrot_pro_rens.png"
+                title="Mamrot Car Spa"
+                href="https://mamrotcarspa.no"
+              />
+            </div>
+            <div id="bento-bottom-right" class="flex-column bento">
+              <div id="arctic_hare_v1">
+                <BentoCard
+                  image="/projects/arctic_hare_design_v1.png"
+                  title="Portfolio V1"
+                  href="/"
+                />
+              </div>
+              <div id="swiftbid">
+                <BentoCard
+                  image="/projects/swiftbid.png"
+                  title="SwiftBid"
+                  href="/"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer language="BG" />
+</Layout>
+
+<style>
+  h1 {
+    color: var(--white);
+  }
+
+  #wave-container {
+    padding-bottom: 30rem;
+  }
+
+  #wave-container img {
+    max-height: 70%;
+  }
+
+  #bento-box {
+    padding-bottom: var(--space-xl);
+  }
+
+  .bento {
+    gap: var(--space-xs);
+    align-items: stretch;
+    justify-content: stretch;
+    filter: drop-shadow(3px 3px 6px #1e1e1e10);
+  }
+
+  #bento-top {
+    width: 100%;
+    height: 28.5rem;
+  }
+
+  #bento-bottom {
+    height: 50rem;
+  }
+
+  #bento-bottom-right {
+    flex-grow: 1;
+  }
+
+  #bento-bottom-right {
+    font-size: var(--text-md);
+  }
+
+  #john {
+    flex-grow: 1;
+  }
+
+  #urban-fox {
+    flex-grow: 3;
+  }
+
+  #mamrot {
+    flex-grow: 5;
+  }
+
+  #bento-bottom-right div {
+    flex-grow: 1;
+  }
+
+  .bento-container {
+  }
+
+  @media only screen and (max-width: 768px) {
+    #wave-container {
+      padding-bottom: var(--space-xl);
+    }
+
+    #bento-top {
+      height: 22vw;
+    }
+
+    #bento-bottom {
+      flex-direction: column;
+      height: 85vw;
+    }
+
+    #mamrot {
+      flex-grow: 1.7;
+    }
+
+    #bento-bottom-right {
+      flex-direction: row;
+    }
+  }
+</style>

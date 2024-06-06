@@ -6,11 +6,14 @@ import TestimonialCard from "../../components/TestimonialCard.astro";
 import Form from "../../components/Form.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
+
+import heroImage from "../../assets/index/hero-image.svg";
 ---
 
 <Layout title="Home">
-  <Nav language="NO" page="" />
-  <main>
+  <Nav language="BG" page="" />
+  <main class="BG">
     <section id="hero" class="space-lg">
       <img
         id="hero-wave"
@@ -21,29 +24,35 @@ import Footer from "../../components/Footer.astro";
       <div class="container center">
         <div class="hero-text flex-column">
           <h1>
-            Vi lager <span class="text-primary">din nettside</span> fra bunnen av
+            Ние създаваме <span class="text-primary">вашия уебсайт</span> от нулата
           </h1>
           <p>
-            Vi forstår viktigheten av en nettside for å få virksomheten din til
-            å vokse, og vi ønsker å hjelpe deg med å skille deg ut. Fra
-            merkeutforming til responsiv nettside, vi gjør din idé til
-            virkelighet.
+            Разбираме значението на уебсайта за развитието на вашия бизнес и
+            бихме искали да ви помогнем да се откроите. От дизайна на марката до
+            адаптивния уебсайт, ние превръщаме вашата идея в реалност.
           </p>
         </div>
-        <img id="hero-image" src="/index/hero-image.svg" alt="" />
+        <Image
+          id="hero-image"
+          src={heroImage}
+          alt=""
+          widths={[385, 485, 500]}
+          sizes={`(max-width: 768px), (max-width 1199px), (min-width:1200px)`}
+        />
       </div>
     </section>
     <section class="bg-white">
       <div class="container flex-column align-center space-lg">
         <div>
           <h2>
-            Stor eller liten, det spiller ingen rolle. Vi vil hjelpe din bedrift
-            å vokse.
+            Голям или малък бизнес, няма значение, ние ще ви помогнем да
+            растете.
           </h2>
           <p>
-            Våre profesjonelt designet nettsider kan betydelig forbedre veksten
-            av din bedrift ved å øke synligheten på nett, tiltrekke flere kunder
-            og gi en sømløs brukeropplevelse.
+            Нашите експертно проектирани уебсайтове могат значително да подобрят
+            растежа на вашия бизнес чрез повишаване на видимостта онлайн,
+            привличане на повече клиенти и предоставяне на безпроблемно
+            потребителско изживяване.
           </p>
         </div>
         <ul id="card-container" class="flex">
@@ -52,29 +61,29 @@ import Footer from "../../components/Footer.astro";
             href="1"
             title="Design"
             image="/index/design.svg"
-            language="NO"
+            language="BG"
           />
           <Card
             decoration="2"
             href="1"
-            title="Webutikling"
+            title="Web Development"
             image="/index/develop.svg"
-            language="NO"
+            language="BG"
           />
           <Card
             decoration="3"
             href="1"
-            title="Merkeidentitet"
+            title="Brand Identity"
             image="/index/brand.svg"
-            language="NO"
+            language="BG"
           />
         </ul>
-        <a href="contact" class="btn btn-primary">Kontakt oss</a>
+        <a href="contact" class="btn btn-primary">Контакт</a>
       </div>
     </section>
     <section id="projects-section" class="bg-white">
       <div class="flex-column align-center space-lg">
-        <h2>Her er det vi har laget så langt</h2>
+        <h2>Вижте какво сме направили</h2>
         <ul id="projects-container" class="padding-0">
           <li id="projects-wave-container" class="relative">
             <img
@@ -84,11 +93,11 @@ import Footer from "../../components/Footer.astro";
               class="wave absolute"
             />
             <ProductSection
-              language="NO"
               picture="/index/mamrot-mockup.png"
-              text="Vi hadde gleden av å lage en dynamisk og visuelt fengende nettside for Mamrot Car Spa i Tromsø. Vår design blander elegant estetikk med brukervennlig funksjonalitet, og sikrer en engasjerende opplevelse for alle besøkende."
-              href="https://mamrotcarspa.no"
+              text="Имахме удоволствието да създадем динамичен и визуално завладяващ уебсайт за Mamrot Car Spa в град Тромсьо. Нашият дизайн безпроблемно съчетава елегантна естетика с удобна за потребителя функционалност, осигурявайки завладяващо изживяване за всеки посетител. "
+              href="https://mamrotcarspa.no/index-en"
               reverse={false}
+              language="BG"
             />
           </li>
           <li class="bg-secondary relative">
@@ -99,11 +108,11 @@ import Footer from "../../components/Footer.astro";
               class="circle absolute"
             />
             <ProductSection
-              language="NO"
               picture="/index/mcgurk-mockup.png"
-              text="Vi laget en imponerende porteføljenettside for vår utvikler. Siden har en iøynefallende interaktiv bakgrunn som reagerer på musebevegelser, og skaper en fengslende og oppslukende brukeropplevelse."
+              text="Създадохме зашеметяващ уебсайт за портфолио за нашия програмист. Сайтът разполага с привличащ вниманието интерактивен фон, който реагира на движенията на мишката, създавайки завладяващо потребителско изживяване."
               href="https://johnmcgurk.no"
               reverse={true}
+              language="BG"
             />
           </li>
         </ul>
@@ -126,7 +135,7 @@ import Footer from "../../components/Footer.astro";
 
         <div class="container flex space-lg">
           <div>
-            <h2>Kundeomtaler</h2>
+            <h2>Отзиви</h2>
             <ul id="testimonials-container" class="flex-column">
               <TestimonialCard
                 text="It was a pleasure working with Arctic Hare Design."
@@ -158,8 +167,8 @@ import Footer from "../../components/Footer.astro";
 
           <div class="container flex">
             <div class="flex-column align-center space-lg">
-              <h2>Usikker på hvor du skal begynne?</h2>
-              <a href="contact" class="btn btn-primary">Prat med oss</a>
+              <h2>Не сте сигурни откъде да започнете?</h2>
+              <a href="contact" class="btn btn-primary">Свържи се с нас</a>
             </div>
           </div>
         </div>
@@ -175,14 +184,14 @@ import Footer from "../../components/Footer.astro";
           />
           <div class="container justify-end">
             <div id="contact-container" class="flex-column">
-              <h2>Send oss en <span class="text-accent">melding</span></h2>
-              <Form color="" language="NO" />
+              <h2>Изпратете ни <span class="text-accent">съобщение</span></h2>
+              <Form color="" language="BG" />
             </div>
           </div>
         </div>
       </section>
     </div>
-    <Footer language="NO" />
+    <Footer language="BG" />
   </main>
 </Layout>
 

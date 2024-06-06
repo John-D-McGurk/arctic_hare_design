@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Form from "../../components/Form.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Contact"
+  ><Nav language="BG" page="contact" />
+  <main class="BG">
+    <div id="text-form" class="container flex space-lg">
+      <div id="main-text" class="flex-column">
+        <h1>
+          Готов ли си за <span class="text-primary">новия</span> си <span
+            class="text-primary">уебсайт?</span
+          >
+        </h1>
+        <p>
+          Не занеш на къде да поемеш или от къде да започнеш, не се притеснявай,
+          ние сме с теб, само ни изпрати съобщение и ще обсъдим бъдешия ти
+          уебсайт.
+        </p>
+        <a href="tel:004741392253">Обади се на: +47 413 92 253</a>
+        <a href="mailto:arctic.hare.design@gmail.com"
+          >Изпрати ни имейл на: arctic.hare.design@gmail.com</a
+        >
+        <span>Последвай ни: </span>
+        <div id="socials">
+          <a href="https://www.facebook.com/arctic.hare.design"
+            ><img src="/facebook.svg" alt="" /></a
+          >
+          <a href=""><img src="/instagram.svg" alt="" /></a>
+          <a href=""><img src="/linkedin.svg" alt="" /></a>
+        </div>
+      </div>
+      <div id="form-container">
+        <Form color="dark" language="BG" />
+      </div>
+    </div>
+    <div id="wave-container" class="relative align-center">
+      <img class="wave absolute" src="/contact/wave.svg" alt="" />
+
+      <div class="container align-center">
+        <img id="image" src="/contact/image.svg" alt="" />
+        <p id="large-text">Не се колебай!</p>
+      </div>
+    </div>
+  </main>
+  <Footer language="BG" />
+</Layout>
+
+<style>
+  main {
+    font-size: var(--text-sm);
+    color: var(--white);
+  }
+
+  #main-text {
+    width: 55%;
+    gap: var(--space-xs);
+  }
+
+  #form-container {
+    flex-grow: 1;
+  }
+
+  #large-text {
+    color: var(--black);
+    font-family: "Fugaz One";
+    font-size: var(--text-lg);
+  }
+
+  #wave-container {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  #wave-container div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .wave {
+    height: 108%;
+  }
+
+  #socials {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  @media only screen and (max-width: 768px) {
+    #main-text {
+      width: unset;
+    }
+
+    #wave-container {
+      background: var(--white);
+      padding-top: 0;
+    }
+
+    .wave {
+      top: 0;
+      transform: translateY(-100%);
+      height: var(--space-xl);
+    }
+
+    #wave-container .container {
+      flex-direction: column;
+    }
+
+    #image {
+      max-width: 90%;
+    }
+
+    .flex {
+      flex-direction: column;
+    }
+  }
+</style>
