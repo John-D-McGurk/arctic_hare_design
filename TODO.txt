@@ -5,3 +5,5 @@ switch md to mdx to include everything in frontmatter
 fix languages using components and markdown to prevent changing in multiple files?
 
 refactor language into prop to pass to components
+
+fix language selector in mobile layout
