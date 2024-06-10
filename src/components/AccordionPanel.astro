@@ -46,23 +46,22 @@ const contentFile = await import(
     image.style.top = `${imageTop}px`;
   }
 
-  const nameAsHash = `#${fileName}`;
-
-  const panelHeads = document.querySelectorAll(".panel-head");
-
-  panelHeads.forEach((panelHead) => {
-    console.log(panelHead);
-    panelHead.addEventListener("click", () => {
-      const container = panelHead.closest(".panel-container");
-      openPanel(container);
-    });
-  });
-
   document.addEventListener("DOMContentLoaded", () => {
+    const nameAsHash = `#${fileName}`;
+
     if (window.location.hash === nameAsHash) {
       const panelContainer = document.querySelector(nameAsHash);
       openPanel(panelContainer);
     }
+    const panelHeads = document.querySelectorAll(".panel-head");
+
+    panelHeads.forEach((panelHead) => {
+      console.log(panelHead);
+      panelHead.addEventListener("click", () => {
+        const container = panelHead.closest(".panel-container");
+        openPanel(container);
+      });
+    });
   });
 </script>
 

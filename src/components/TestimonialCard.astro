@@ -1,15 +1,17 @@
 ---
 interface Props {
   text: string;
+  customer: string;
 }
 
-const { text } = Astro.props;
+const { text, customer } = Astro.props;
 ---
 
 <li class="relative">
   <img class="open-quotes" src="/index/quote.svg" alt="" />
   <img class="close-quotes" src="/index/quote.svg" alt="" />
   <p>{text}</p>
+  <span id="customer">-{customer}</span>
 </li>
 
 <style>
@@ -17,7 +19,7 @@ const { text } = Astro.props;
     box-sizing: border-box;
     width: 100%;
     background: var(--secondary-30);
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-sm) 7rem;
     text-align: center;
     list-style: none;
   }
@@ -36,5 +38,12 @@ const { text } = Astro.props;
   .close-quotes {
     right: var(--space-md);
     transform: translateX(100%) rotate(180deg);
+  }
+
+  #customer {
+    font-family: "champagne_bold", sans-serif;
+    position: absolute;
+    bottom: var(--space-xs);
+    right: 7rem;
   }
 </style>

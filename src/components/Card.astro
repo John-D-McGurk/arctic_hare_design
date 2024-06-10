@@ -9,8 +9,10 @@ interface Props {
 
 const { href, title, image, decoration, language } = Astro.props;
 let readMore;
-if (language === "NO") {
+if (language === "no") {
   readMore = "Les mer";
+} else if (language === "bg") {
+  readMore = "Прочети повече";
 } else {
   readMore = "Read more";
 }
