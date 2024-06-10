@@ -13,3 +13,5 @@ change logo vs hamburger scaling on mobile
 fix accordion hash in url
 
 fix nav and footer to be inside layout
+
+fix image sizes for projects page

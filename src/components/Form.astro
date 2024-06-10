@@ -78,11 +78,11 @@ if (language === "NO") {
 <form id="contact-form" action="" class:list={classList}>
   <div class="input-wrapper">
     <input id="name" class="text-input" type="text" placeholder=" " />
-    <span class="placeholder">{name}</span>
+    <label for="name" class="placeholder">{name}</label>
   </div>
   <div class="input-wrapper">
     <input id="email" class="text-input" type="text" placeholder=" " />
-    <span class="placeholder">{email}</span>
+    <label for="email" class="placeholder">{email}</label>
   </div>
   <div class="input-wrapper">
     <textarea
@@ -92,7 +92,7 @@ if (language === "NO") {
       id=""
       rows="6"
       placeholder=" "></textarea>
-    <span class="placeholder">{message}</span>
+    <label for="message" class="placeholder">{message}</label>
   </div>
   <input type="submit" class:list={buttonClassList} value={send} />
 </form>

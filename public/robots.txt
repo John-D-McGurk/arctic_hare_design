@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://<https://arcticharedesign.no>/sitemap-index.xml
+Sitemap: https://https://arcticharedesign.no/sitemap-index.xml
