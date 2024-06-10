@@ -4,34 +4,36 @@ import Nav from "../components/Nav.astro";
 interface Props {
   title: string;
   language: string;
+  description: string;
 }
 
-const { title, language } = Astro.props;
+const { title, language, description } = Astro.props;
 let pageDict;
+const url = `https://arcticharedesign.no/${language}/${title}`;
 
 if (language === "bg") {
   pageDict = {
-    Home: "Начало",
-    Projects: "Проекти",
-    Services: "Услуги",
-    Contact: "Контакт",
+    Home: "Агенция за професионална уеб разработка и дизайн",
+    Projects: "Нашите проекти за уеб разработка",
+    Services: "Нашите услуги за уеб разработка и дизайн",
+    Contact: "Свържете се с нас",
   };
 } else if (language === "no") {
   pageDict = {
-    Home: "Hjem",
+    Home: "Professjonell Webutvikling & Designbyrå",
     Projects: "Prosjekter",
-    Services: "Tjenester",
+    Services: "Våre webutvikling og Designtjenester",
     Contact: "Kontakt Oss",
   };
 } else {
   pageDict = {
-    Home: "Home",
-    Projects: "Projects",
-    Services: "Services",
+    Home: "Professional Web Development & Design Agency",
+    Projects: "Our Web Development Projects",
+    Services: "Our Web Development & Design Services",
     Contact: "Contact Us",
   };
 }
-let page = pageDict[title];
+let page = `${pageDict[title]} | Arctic Hare Design`;
 ---
 
 <!doctype html>
@@ -42,7 +44,14 @@ let page = pageDict[title];
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{page} | Arctic Hare Design</title>
+
+    <title>{page}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" , content={page} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
   </head>
   <body>
     <Nav language={language} page={title} />
