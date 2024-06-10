@@ -5,9 +5,8 @@ import AccordionPanel from "../../components/AccordionPanel.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<Layout title="Services">
-  <Nav language="bg" page="services" />
-  <main class="bg">
+<Layout title="Services" language="bg">
+  <main slot="body" class="bg">
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="/services/header-wave.svg" alt="" />
       <img

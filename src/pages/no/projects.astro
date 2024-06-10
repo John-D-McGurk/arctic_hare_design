@@ -5,9 +5,8 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<Layout title="Projects"
-  ><Nav language="no" page="projects" />
-  <main>
+<Layout title="Projects" language="no">
+  <main slot="body">
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="/projects/wave.svg" alt="" />
       <div class="container">

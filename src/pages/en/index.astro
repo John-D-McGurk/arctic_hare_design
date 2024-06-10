@@ -11,9 +11,8 @@ import { Image } from "astro:assets";
 import heroImage from "../../assets/index/hero-image.svg";
 ---
 
-<Layout title="Home">
-  <Nav language="en" page="" />
-  <main>
+<Layout title="Home" language="en">
+  <main slot="body">
     <section id="hero" class="space-lg">
       <img
         id="hero-wave"

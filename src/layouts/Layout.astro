@@ -1,9 +1,37 @@
 ---
+import Nav from "../components/Nav.astro";
+
 interface Props {
   title: string;
+  language: string;
 }
 
-const { title } = Astro.props;
+const { title, language } = Astro.props;
+let pageDict;
+
+if (language === "bg") {
+  pageDict = {
+    Home: "Начало",
+    Projects: "Проекти",
+    Services: "Услуги",
+    Contact: "Контакт",
+  };
+} else if (language === "no") {
+  pageDict = {
+    Home: "Hjem",
+    Projects: "Prosjekter",
+    Services: "Tjenester",
+    Contact: "Kontakt Oss",
+  };
+} else {
+  pageDict = {
+    Home: "Home",
+    Projects: "Projects",
+    Services: "Services",
+    Contact: "Contact Us",
+  };
+}
+let page = pageDict[title];
 ---
 
 <!doctype html>
@@ -14,77 +42,79 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Arctic Hare Design</title>
+    <title>{page} | Arctic Hare Design</title>
   </head>
   <body>
-    <slot />
+    <Nav language={language} page={title} />
+
+    <slot name="body" />
   </body>
-</html>
 
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+  <style is:global>
+    @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
-  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
-  @font-face {
-    font-family: "champagne_regular";
-    src: url("/fonts/champagne__limousines-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-  }
+    @font-face {
+      font-family: "champagne_regular";
+      src: url("/fonts/champagne__limousines-webfont.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
 
-  @font-face {
-    font-family: "champagne_bold";
-    src: url("/fonts/champagne__limousines_bold-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-  }
+    @font-face {
+      font-family: "champagne_bold";
+      src: url("/fonts/champagne__limousines_bold-webfont.woff2")
+        format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
 
-  @font-face {
-    font-family: "champagne_bold_italic";
-    src: url("/fonts/champagne__limousines_bold_italic-webfont.woff2")
-      format("woff2");
-    font-weight: normal;
-    font-style: normal;
-  }
+    @font-face {
+      font-family: "champagne_bold_italic";
+      src: url("/fonts/champagne__limousines_bold_italic-webfont.woff2")
+        format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
 
-  @font-face {
-    font-family: "champagne_italic";
-    src: url("/fonts/champagne__limousines_italic-webfont.woff2")
-      format("woff2");
-    font-weight: normal;
-    font-style: normal;
-  }
+    @font-face {
+      font-family: "champagne_italic";
+      src: url("/fonts/champagne__limousines_italic-webfont.woff2")
+        format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
 
-  :root {
-    --primary: #f7a464;
-    --secondary: #ffd4b3;
-    --accent: #4d5ca8;
-    --light: #fef4ec;
-    --white: #fffaf6;
-    --black: #161e31;
+    :root {
+      --primary: #f7a464;
+      --secondary: #ffd4b3;
+      --accent: #4d5ca8;
+      --light: #fef4ec;
+      --white: #fffaf6;
+      --black: #161e31;
 
-    --secondary-30: #ffd4b34d;
+      --secondary-30: #ffd4b34d;
 
-    --space-xl: 20rem;
-    --space-lg: 10rem;
-    --space-md: 6rem;
-    --space-sm: 4rem;
-    --space-xs: 2rem;
-    --space-xxs: 1rem;
+      --space-xl: 20rem;
+      --space-lg: 10rem;
+      --space-md: 6rem;
+      --space-sm: 4rem;
+      --space-xs: 2rem;
+      --space-xxs: 1rem;
 
-    --text-xl: 7rem;
-    --text-lg: 4rem;
-    --text-md: 2.8rem;
-    --text-ms: 2.666rem;
-    --text-sm: 2rem;
+      --text-xl: 7rem;
+      --text-lg: 4rem;
+      --text-md: 2.8rem;
+      --text-ms: 2.666rem;
+      --text-sm: 2rem;
 
-    --nav-height: 10rem;
+      --nav-height: 10rem;
 
-    font-size: 62.5%;
-  }
+      font-size: 62.5%;
+    }
 
-  /* 11.220
+    /* 11.220
 8.417
   6.314
 4.736
@@ -92,205 +122,206 @@ const { title } = Astro.props;
   2.666
   2 */
 
-  html {
-    color: var(--black);
-    font-family: "champagne_regular", sans-serif;
-    background: var(--black);
-  }
+    html {
+      color: var(--black);
+      font-family: "champagne_regular", sans-serif;
+      background: var(--black);
+    }
 
-  body {
-    margin: 0;
-    font-size: var(--text-sm);
-  }
+    body {
+      margin: 0;
+      font-size: var(--text-sm);
+    }
 
-  h1,
-  h2,
-  h3 {
-    margin: 0;
-    font-weight: unset;
-  }
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-weight: unset;
+    }
 
-  h1,
-  h2,
-  h3 {
-    font-family: "Fugaz One", sans-serif;
-  }
+    h1,
+    h2,
+    h3 {
+      font-family: "Fugaz One", sans-serif;
+    }
 
-  .bg :is(h1, h2, h3) {
-    font-family: "Open Sans", sans-serif;
-  }
+    .bg :is(h1, h2, h3) {
+      font-family: "Open Sans", sans-serif;
+    }
 
-  h1 {
-    font-size: var(--text-xl);
-  }
+    h1 {
+      font-size: var(--text-xl);
+    }
 
-  h2 {
-    font-size: var(--text-lg);
-  }
+    h2 {
+      font-size: var(--text-lg);
+    }
 
-  h3 {
-    font-size: var(--text-md);
-  }
+    h3 {
+      font-size: var(--text-md);
+    }
 
-  p {
-    font-size: var(--text-sm);
-  }
+    p {
+      font-size: var(--text-sm);
+    }
 
-  a {
-    color: unset;
-    text-decoration: none;
-    transition: transform 0.5s;
-    cursor: pointer;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--space-lg);
-    padding-right: var(--space-lg);
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .align-center {
-    display: flex;
-    align-items: center;
-  }
-
-  .justify-center {
-    display: flex;
-    justify-content: center;
-  }
-
-  .justify-end {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .relative {
-    position: relative;
-  }
-
-  .absolute {
-    position: absolute;
-  }
-
-  .space-lg {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
-    gap: var(--space-lg);
-  }
-
-  .padding-0 {
-    padding: 0;
-  }
-
-  .btn,
-  .btn-sm {
-    text-decoration: none;
-    font-family: "champagne_bold", sans-serif;
-    font-weight: 500;
-    border: none;
-    transition: transform 0.5s;
-  }
-
-  .btn:hover,
-  .btn-sm:hover {
-    transform: scale(1.1);
-  }
-
-  .btn {
-    font-size: 2.4rem;
-    padding: 1.6rem 3.2rem;
-    border-radius: 5rem;
-  }
-
-  .btn-sm {
-    padding: 1rem 2.6rem;
-    border-radius: 5rem;
-    font-size: 2rem;
-  }
-
-  .btn-primary {
-    background: var(--primary);
-    color: var(--black);
-  }
-
-  .btn-accent {
-    background: var(--accent);
-    color: var(--light);
-  }
-
-  .text-primary {
-    color: var(--primary);
-  }
-
-  .text-accent {
-    color: var(--accent);
-  }
-
-  .bg-white,
-  .bg-secondary,
-  .bg-light {
-    position: relative;
-  }
-
-  .bg-white {
-    background: var(--white);
-  }
-
-  .bg-secondary {
-    background: var(--secondary);
-  }
-
-  .bg-light {
-    background: var(--light);
-  }
-
-  .wave {
-    width: 100%;
-    bottom: 0;
-    z-index: 0;
-  }
-
-  .wave ~ *:not(.absolute),
-  .circle ~ *:not(.absolute) {
-    z-index: 100;
-    position: relative;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    :root {
-      font-size: 50%;
+    a {
+      color: unset;
+      text-decoration: none;
+      transition: transform 0.5s;
+      cursor: pointer;
     }
 
     .container {
-      padding-left: var(--space-sm);
-      padding-right: var(--space-sm);
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    :root {
-      font-size: 40%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
     }
 
-    .container {
-      padding-left: var(--space-xs);
-      padding-right: var(--space-xs);
+    .flex {
+      display: flex;
     }
-  }
-</style>
+
+    .flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .align-center {
+      display: flex;
+      align-items: center;
+    }
+
+    .justify-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .justify-end {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .space-lg {
+      padding-top: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      gap: var(--space-lg);
+    }
+
+    .padding-0 {
+      padding: 0;
+    }
+
+    .btn,
+    .btn-sm {
+      text-decoration: none;
+      font-family: "champagne_bold", sans-serif;
+      font-weight: 500;
+      border: none;
+      transition: transform 0.5s;
+    }
+
+    .btn:hover,
+    .btn-sm:hover {
+      transform: scale(1.1);
+    }
+
+    .btn {
+      font-size: 2.4rem;
+      padding: 1.6rem 3.2rem;
+      border-radius: 5rem;
+    }
+
+    .btn-sm {
+      padding: 1rem 2.6rem;
+      border-radius: 5rem;
+      font-size: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--black);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: var(--light);
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .bg-white,
+    .bg-secondary,
+    .bg-light {
+      position: relative;
+    }
+
+    .bg-white {
+      background: var(--white);
+    }
+
+    .bg-secondary {
+      background: var(--secondary);
+    }
+
+    .bg-light {
+      background: var(--light);
+    }
+
+    .wave {
+      width: 100%;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .wave ~ *:not(.absolute),
+    .circle ~ *:not(.absolute) {
+      z-index: 100;
+      position: relative;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      :root {
+        font-size: 50%;
+      }
+
+      .container {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      :root {
+        font-size: 40%;
+      }
+
+      .container {
+        padding-left: var(--space-xs);
+        padding-right: var(--space-xs);
+      }
+    }
+  </style>
+</html>

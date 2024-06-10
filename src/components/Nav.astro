@@ -5,13 +5,19 @@ interface Props {
 }
 
 const { language, page } = Astro.props;
-let home, projects, services, contactUs;
+let home, projects, services, contactUs, pageLink;
 
 const homeLink = `/${language}`,
   projectsLink = `/${language}/projects`,
   servicesLink = `/${language}/services`,
   contactLink = `/${language}/contact`,
   languageCapitalised = language.toUpperCase();
+
+if (page === "Home") {
+  pageLink = "";
+} else {
+  pageLink = page.toLowerCase();
+}
 
 if (language === "no") {
   home = "Hjem";
@@ -51,9 +57,9 @@ if (language === "no") {
         >{languageCapitalised}<img src="/chevron-down.svg" alt="" /></span
       >
       <div id="dropdown-contents" class="flex-column">
-        <a href={`/en/${page}`} data-lang="en">EN</a>
-        <a href={`/no/${page}`} data-lang="no">NO</a>
-        <a href={`/bg/${page}`} data-lang="bg">BG</a>
+        <a href={`/en/${pageLink}`} data-lang="en">EN</a>
+        <a href={`/no/${pageLink}`} data-lang="no">NO</a>
+        <a href={`/bg/${pageLink}`} data-lang="bg">BG</a>
       </div>
     </div>
   </div>

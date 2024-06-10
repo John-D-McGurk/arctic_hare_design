@@ -5,57 +5,53 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<Layout title="Contact"
-  ><Nav language="no" page="contact" />
-  <main>
-    <div id="text-form" class="container flex space-lg">
-      <div id="main-text" class="flex-column">
-        <h1>
-          Er du klar for <span class="text-primary">din</span> nye <span
-            class="text-primary">nettside?</span
-          >
-        </h1>
-        <p>
-          Usikker på hvor du skal starte eller hva du skal gjøre? Ikke bekymre
-          deg, vi har deg dekket. Ring eller send oss en melding for å avtale et
-          møte og diskutere din fremtidige nettside!
-        </p>
-        <a href="tel:004741392253">Ring oss på: +47 413 92 253</a>
-        <a href="mailto:arctic.hare.design@gmail.com"
-          >Send oss E-post på: arctic.hare.design@gmail.com</a
+<Layout title="Contact" language="no" />
+<main slot="body">
+  <div id="text-form" class="container flex space-lg">
+    <div id="main-text" class="flex-column">
+      <h1>
+        Er du klar for <span class="text-primary">din</span> nye <span
+          class="text-primary">nettside?</span
         >
-        <span>Følg oss på:</span>
-        <div id="socials">
-          <a target="_blank" href="https://www.facebook.com/arctic.hare.design"
-            ><img src="/facebook.svg" alt="" /></a
-          >
-          <a
-            target="_blank"
-            href="https://www.instagram.com/arctic_hare_design/"
-            ><img src="/instagram.svg" alt="" /></a
-          >
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/company/arctic-hare-design/about/"
-            ><img src="/linkedin.svg" alt="" /></a
-          >
-        </div>
-      </div>
-      <div id="form-container">
-        <Form color="dark" language="no" />
+      </h1>
+      <p>
+        Usikker på hvor du skal starte eller hva du skal gjøre? Ikke bekymre
+        deg, vi har deg dekket. Ring eller send oss en melding for å avtale et
+        møte og diskutere din fremtidige nettside!
+      </p>
+      <a href="tel:004741392253">Ring oss på: +47 413 92 253</a>
+      <a href="mailto:arctic.hare.design@gmail.com"
+        >Send oss E-post på: arctic.hare.design@gmail.com</a
+      >
+      <span>Følg oss på:</span>
+      <div id="socials">
+        <a target="_blank" href="https://www.facebook.com/arctic.hare.design"
+          ><img src="/facebook.svg" alt="" /></a
+        >
+        <a target="_blank" href="https://www.instagram.com/arctic_hare_design/"
+          ><img src="/instagram.svg" alt="" /></a
+        >
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/company/arctic-hare-design/about/"
+          ><img src="/linkedin.svg" alt="" /></a
+        >
       </div>
     </div>
-    <div id="wave-container" class="relative align-center">
-      <img class="wave absolute" src="/contact/wave.svg" alt="" />
+    <div id="form-container">
+      <Form color="dark" language="no" />
+    </div>
+  </div>
+  <div id="wave-container" class="relative align-center">
+    <img class="wave absolute" src="/contact/wave.svg" alt="" />
 
-      <div class="container align-center">
-        <img id="image" src="/contact/image.svg" alt="" />
-        <p id="large-text">Ikke nøl med å spørre!</p>
-      </div>
+    <div class="container align-center">
+      <img id="image" src="/contact/image.svg" alt="" />
+      <p id="large-text">Ikke nøl med å spørre!</p>
     </div>
-  </main>
-  <Footer language="no" />
-</Layout>
+  </div>
+</main>
+<Footer language="no" />
 
 <style>
   main {

@@ -11,9 +11,8 @@ import { Image } from "astro:assets";
 import heroImage from "../../assets/index/hero-image.svg";
 ---
 
-<Layout title="Home">
-  <Nav language="no" page="" />
-  <main>
+<Layout title="Home" language="no">
+  <main slot="body">
     <section id="hero" class="space-lg">
       <img
         id="hero-wave"
@@ -193,206 +192,206 @@ import heroImage from "../../assets/index/hero-image.svg";
     </div>
     <Footer language="no" />
   </main>
-</Layout>
 
-<style>
-  #hero {
-    box-sizing: border-box;
-    color: var(--light);
-    min-height: calc(100vh - var(--nav-height));
-    position: relative;
-    padding-top: var(--space-lg);
-  }
-
-  #hero .container {
-    gap: var(--space-lg);
-  }
-
-  #hero-image {
-    width: min(40vw, 50rem);
-    height: auto;
-  }
-
-  #hero-wave {
-    width: 100%;
-    max-height: 60vh;
-  }
-
-  #projects-section div {
-    padding-bottom: 0;
-  }
-
-  #projects-wave {
-    height: 100%;
-  }
-
-  #projects-circle {
-    top: 0;
-    right: calc(-1 * var(--space-lg));
-    transform: translateX(10%);
-    max-height: 120%;
-  }
-
-  #card-container {
-    width: 100%;
-    justify-content: stretch;
-    gap: var(--space-xs);
-    padding: 0;
-  }
-
-  #projects-container {
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-  }
-
-  #projects-wave-container {
-    box-sizing: border-box;
-    width: 100%;
-  }
-
-  #testimonials-section {
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  #testimonials-section div {
-    width: 60%;
-    margin-left: auto;
-  }
-
-  #testimonials-container {
-    width: 100%;
-    gap: var(--space-sm);
-    padding: var(--space-md) 0;
-  }
-
-  #testimonials-image {
-    max-width: 35%;
-    max-height: 80%;
-    top: var(--space-lg);
-    left: var(--space-lg);
-  }
-
-  #testimonials-circle {
-    height: 80%;
-    bottom: 0;
-    top: var(--space-xl);
-    transform: translateX(-15%);
-  }
-
-  #lets-talk-section > div {
-    padding-bottom: 0;
-  }
-
-  #lets-talk-wave {
-    max-height: 100%;
-  }
-
-  #lets-talk-image {
-    right: var(--space-lg);
-  }
-
-  #contact-container {
-    width: 45%;
-    gap: var(--space-sm);
-  }
-
-  #contact-image {
-    left: var(--space-lg);
-    max-height: 75%;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    #lets-talk-section > .space-lg {
-      padding-top: 0;
-    }
-
-    #lets-talk-image {
-      width: 40%;
-      right: var(--space-sm);
-    }
-  }
-  @media only screen and (max-width: 768px) {
+  <style>
     #hero {
-      display: flex;
-      justify-content: center;
-      padding-bottom: var(--space-md);
+      box-sizing: border-box;
+      color: var(--light);
+      min-height: calc(100vh - var(--nav-height));
+      position: relative;
+      padding-top: var(--space-lg);
     }
+
     #hero .container {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-md);
+      gap: var(--space-lg);
     }
 
     #hero-image {
-      width: min(60vw, 60rem);
+      width: min(40vw, 50rem);
+      height: auto;
     }
 
     #hero-wave {
-      min-height: 30rem;
+      width: 100%;
+      max-height: 60vh;
+    }
+
+    #projects-section div {
+      padding-bottom: 0;
+    }
+
+    #projects-wave {
+      height: 100%;
+    }
+
+    #projects-circle {
+      top: 0;
+      right: calc(-1 * var(--space-lg));
+      transform: translateX(10%);
+      max-height: 120%;
     }
 
     #card-container {
-      flex-direction: column;
+      width: 100%;
+      justify-content: stretch;
+      gap: var(--space-xs);
+      padding: 0;
     }
 
-    #projects-section h2 {
-      padding: 0 var(--space-xs);
+    #projects-container {
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    #projects-wave-container {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    #testimonials-section {
+      max-width: 100%;
+      overflow: hidden;
     }
 
     #testimonials-section div {
-      margin: unset;
-      width: unset;
+      width: 60%;
+      margin-left: auto;
+    }
+
+    #testimonials-container {
+      width: 100%;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0;
     }
 
     #testimonials-image {
-      transform: scaleX(-1);
-      left: unset;
-      right: var(--space-sm);
-      max-width: 30vw;
+      max-width: 35%;
+      max-height: 80%;
+      top: var(--space-lg);
+      left: var(--space-lg);
     }
 
     #testimonials-circle {
-      left: unset;
-      right: calc(-1 * var(--space-sm));
-      transform: translateX(15%);
-      top: var(--space-lg);
+      height: 80%;
+      bottom: 0;
+      top: var(--space-xl);
+      transform: translateX(-15%);
     }
 
-    #contact-container {
-      width: 100%;
-      padding-bottom: 90rem;
-    }
-
-    #contact-image {
-      height: 80rem;
-      bottom: var(--space-lg);
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    #lets-talk-section .relative {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 0;
-      gap: 0;
-    }
-
-    #lets-talk-section .relative .space-lg {
-      gap: var(--space-md);
-      text-align: center;
-    }
-
-    #lets-talk-image {
-      position: relative;
-      max-width: 75%;
-      right: unset;
+    #lets-talk-section > div {
+      padding-bottom: 0;
     }
 
     #lets-talk-wave {
-      height: 70%;
+      max-height: 100%;
     }
-  }
-</style>
+
+    #lets-talk-image {
+      right: var(--space-lg);
+    }
+
+    #contact-container {
+      width: 45%;
+      gap: var(--space-sm);
+    }
+
+    #contact-image {
+      left: var(--space-lg);
+      max-height: 75%;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      #lets-talk-section > .space-lg {
+        padding-top: 0;
+      }
+
+      #lets-talk-image {
+        width: 40%;
+        right: var(--space-sm);
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      #hero {
+        display: flex;
+        justify-content: center;
+        padding-bottom: var(--space-md);
+      }
+      #hero .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+      }
+
+      #hero-image {
+        width: min(60vw, 60rem);
+      }
+
+      #hero-wave {
+        min-height: 30rem;
+      }
+
+      #card-container {
+        flex-direction: column;
+      }
+
+      #projects-section h2 {
+        padding: 0 var(--space-xs);
+      }
+
+      #testimonials-section div {
+        margin: unset;
+        width: unset;
+      }
+
+      #testimonials-image {
+        transform: scaleX(-1);
+        left: unset;
+        right: var(--space-sm);
+        max-width: 30vw;
+      }
+
+      #testimonials-circle {
+        left: unset;
+        right: calc(-1 * var(--space-sm));
+        transform: translateX(15%);
+        top: var(--space-lg);
+      }
+
+      #contact-container {
+        width: 100%;
+        padding-bottom: 90rem;
+      }
+
+      #contact-image {
+        height: 80rem;
+        bottom: var(--space-lg);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #lets-talk-section .relative {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        gap: 0;
+      }
+
+      #lets-talk-section .relative .space-lg {
+        gap: var(--space-md);
+        text-align: center;
+      }
+
+      #lets-talk-image {
+        position: relative;
+        max-width: 75%;
+        right: unset;
+      }
+
+      #lets-talk-wave {
+        height: 70%;
+      }
+    }
+  </style>
+</Layout>
