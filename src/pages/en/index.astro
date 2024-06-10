@@ -12,7 +12,7 @@ import heroImage from "../../assets/index/hero-image.svg";
 ---
 
 <Layout title="Home">
-  <Nav language="EN" page="" />
+  <Nav language="en" page="" />
   <main>
     <section id="hero" class="space-lg">
       <img
@@ -59,21 +59,21 @@ import heroImage from "../../assets/index/hero-image.svg";
             href="1"
             title="Design"
             image="/index/design.svg"
-            language="EN"
+            language="en"
           />
           <Card
             decoration="2"
             href="1"
             title="Web Development"
             image="/index/develop.svg"
-            language="EN"
+            language="en"
           />
           <Card
             decoration="3"
             href="1"
             title="Brand Identity"
             image="/index/brand.svg"
-            language="EN"
+            language="en"
           />
         </ul>
         <a href="contact" class="btn btn-primary">Contact us</a>
@@ -95,7 +95,7 @@ import heroImage from "../../assets/index/hero-image.svg";
               text="We had the pleasure of creating a dynamic and visually captivating website for Mamrot Car Spa in Tromsø. Our design seamlessly blends sleek aesthetics with user-friendly functionality, ensuring an engaging experience for every visitor. "
               href="https://mamrotcarspa.no/index-en"
               reverse={false}
-              language="EN"
+              language="en"
             />
           </li>
           <li class="bg-secondary relative">
@@ -110,7 +110,7 @@ import heroImage from "../../assets/index/hero-image.svg";
               text="We crafted a stunning portfolio website for our developer. The site features an eye-catching interactive background that responds to mouse movements, creating an captivating and immersive user experience."
               href="https://johnmcgurk.no"
               reverse={true}
-              language="EN"
+              language="en"
             />
           </li>
         </ul>
@@ -183,13 +183,13 @@ import heroImage from "../../assets/index/hero-image.svg";
           <div class="container justify-end">
             <div id="contact-container" class="flex-column">
               <h2>Send us a <span class="text-accent">message</span></h2>
-              <Form color="" language="EN" />
+              <Form color="" language="en" />
             </div>
           </div>
         </div>
       </section>
     </div>
-    <Footer language="EN" />
+    <Footer language="en" />
   </main>
 </Layout>
 
@@ -208,6 +208,7 @@ import heroImage from "../../assets/index/hero-image.svg";
 
   #hero-image {
     width: min(40vw, 50rem);
+    height: auto;
   }
 
   #hero-wave {
@@ -272,8 +273,8 @@ import heroImage from "../../assets/index/hero-image.svg";
   }
 
   #testimonials-circle {
-    width: 55%;
-    top: var(--space-xl);
+    height: 80%;
+    bottom: 0;
     transform: translateX(-15%);
   }
 

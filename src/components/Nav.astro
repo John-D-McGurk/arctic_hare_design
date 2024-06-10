@@ -10,14 +10,15 @@ let home, projects, services, contactUs;
 const homeLink = `/${language}`,
   projectsLink = `/${language}/projects`,
   servicesLink = `/${language}/services`,
-  contactLink = `/${language}/contact`;
+  contactLink = `/${language}/contact`,
+  languageCapitalised = language.toUpperCase();
 
-if (language === "NO") {
+if (language === "no") {
   home = "Hjem";
   projects = "Prosjekter";
   services = "Tjenester";
   contactUs = "Kontakt Oss";
-} else if (language === "BG") {
+} else if (language === "bg") {
   home = "Начало";
   projects = "Проекти";
   services = "Услуги";
@@ -47,12 +48,12 @@ if (language === "NO") {
     <a href={contactLink} id="contact" class="btn btn-primary">{contactUs}</a>
     <div id="dropdown">
       <span data-lang={language}
-        >{language}<img src="/chevron-down.svg" alt="" /></span
+        >{languageCapitalised}<img src="/chevron-down.svg" alt="" /></span
       >
       <div id="dropdown-contents" class="flex-column">
-        <a href={`/EN/${page}`} data-lang="EN">EN</a>
-        <a href={`/NO/${page}`} data-lang="NO">NO</a>
-        <a href={`/BG/${page}`} data-lang="BG">BG</a>
+        <a href={`/en/${page}`} data-lang="en">EN</a>
+        <a href={`/no/${page}`} data-lang="no">NO</a>
+        <a href={`/bg/${page}`} data-lang="bg">BG</a>
       </div>
     </div>
   </div>

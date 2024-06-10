@@ -6,8 +6,8 @@ import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Services">
-  <Nav language="NO" page="services" />
-  <main>
+  <Nav language="bg" page="services" />
+  <main class="bg">
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="/services/header-wave.svg" alt="" />
       <img
@@ -17,35 +17,35 @@ import Footer from "../../components/Footer.astro";
         alt=""
       />
       <div class="container">
-        <h1>Tjenester</h1>
+        <h1>Услуги</h1>
       </div>
     </div>
     <div class="bg-white">
       <div class="container">
         <AccordionPanel
-          title="Design og Utvikling"
+          title="Дизайн и разработка"
           fileName="design-development"
-          language="NO"
+          language="bg"
         />
         <AccordionPanel
-          title="Nettstedsvedlikehold"
+          title="Поддръжка на уебсайт"
           fileName="website-maintenance"
-          language="NO"
+          language="bg"
         />
         <AccordionPanel
-          title="Design og Trykk"
+          title="Дизайн и печат"
           fileName="design-print"
-          language="NO"
+          language="bg"
         />
         <AccordionPanel
-          title="Sosiale Medier Administrasjon"
+          title="Управление на социални медии"
           fileName="media-management"
-          language="NO"
+          language="bg"
         />
-        <AccordionPanel title="SEO" fileName="seo" language="NO" />
+        <AccordionPanel title="SEO оптимизация" fileName="seo" language="bg" />
       </div>
     </div>
-    <Footer language="NO" />
+    <Footer language="bg" />
   </main></Layout
 >
 <style>

@@ -15,7 +15,7 @@ const contentFile = await import(
   image = `/services/${fileName}-image.svg`;
 ---
 
-<div class="panel-container">
+<div id={fileName} class="panel-container">
   <div class="panel-head">
     <h2 class="relative">
       {title}
@@ -32,25 +32,37 @@ const contentFile = await import(
   </div>
 </div>
 
-<script>
+<script define:vars={{ fileName }}>
+  function openPanel(container) {
+    container.classList.toggle("active");
+    const innerContent = container.querySelector(".panel-inner"),
+      wave = container.querySelector(".panel-wave"),
+      image = container.querySelector(".panel-image");
+    let imageTop = innerContent.offsetHeight - image.offsetHeight - 60;
+    if (imageTop < 0) {
+      imageTop = 0;
+    }
+    wave.style.height = `${innerContent.offsetHeight}px`;
+    image.style.top = `${imageTop}px`;
+  }
+
+  const nameAsHash = `#${fileName}`;
+
   const panelHeads = document.querySelectorAll(".panel-head");
 
   panelHeads.forEach((panelHead) => {
+    console.log(panelHead);
     panelHead.addEventListener("click", () => {
       const container = panelHead.closest(".panel-container");
-      container.classList.toggle("active");
-      const innerContent = container.querySelector(
-          ".panel-inner"
-        ) as HTMLElement,
-        wave = container.querySelector(".panel-wave") as HTMLElement,
-        image = container.querySelector(".panel-image") as HTMLElement;
-      let imageTop = innerContent.offsetHeight - image.offsetHeight - 60;
-      if (imageTop < 0) {
-        imageTop = 0;
-      }
-      wave.style.height = `${innerContent.offsetHeight}px`;
-      image.style.top = `${imageTop}px`;
+      openPanel(container);
     });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.hash === nameAsHash) {
+      const panelContainer = document.querySelector(nameAsHash);
+      openPanel(panelContainer);
+    }
   });
 </script>
 

@@ -7,3 +7,7 @@ fix languages using components and markdown to prevent changing in multiple file
 refactor language into prop to pass to components
 
 fix language selector in mobile layout
+
+change logo vs hamburger scaling on mobile
+
+fix accordion hash in url

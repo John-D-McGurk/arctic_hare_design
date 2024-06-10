@@ -6,8 +6,8 @@ import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Contact"
-  ><Nav language="BG" page="contact" />
-  <main class="BG">
+  ><Nav language="bg" page="contact" />
+  <main class="bg">
     <div id="text-form" class="container flex space-lg">
       <div id="main-text" class="flex-column">
         <h1>
@@ -26,15 +26,23 @@ import Footer from "../../components/Footer.astro";
         >
         <span>Последвай ни: </span>
         <div id="socials">
-          <a href="https://www.facebook.com/arctic.hare.design"
+          <a target="_blank" href="https://www.facebook.com/arctic.hare.design"
             ><img src="/facebook.svg" alt="" /></a
           >
-          <a href=""><img src="/instagram.svg" alt="" /></a>
-          <a href=""><img src="/linkedin.svg" alt="" /></a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/arctic_hare_design/"
+            ><img src="/instagram.svg" alt="" /></a
+          >
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/arctic-hare-design/about/"
+            ><img src="/linkedin.svg" alt="" /></a
+          >
         </div>
       </div>
       <div id="form-container">
-        <Form color="dark" language="BG" />
+        <Form color="dark" language="bg" />
       </div>
     </div>
     <div id="wave-container" class="relative align-center">
@@ -46,7 +54,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </div>
   </main>
-  <Footer language="BG" />
+  <Footer language="bg" />
 </Layout>
 
 <style>
@@ -66,7 +74,7 @@ import Footer from "../../components/Footer.astro";
 
   #large-text {
     color: var(--black);
-    font-family: "Fugaz One";
+    font-family: "Open Sans", sans-serif;
     font-size: var(--text-lg);
   }
 

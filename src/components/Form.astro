@@ -37,7 +37,7 @@ if (language === "NO") {
   function sendEmail() {
     const url =
         "https://script.google.com/macros/s/AKfycbzIhFof1kn4mqW-Rfs7tfBI4zCA3Ka45O0PUvF8FwWL7KPMrn6o2qVzE0QMzjl-FgNuVQ/exec",
-      recipient = "arctic.hare.design@gmail.com",
+      recipient = "contact@arcticharedesign.no",
       contactForm = document.querySelector("#contact-form");
 
     contactForm.addEventListener("submit", (e) => {
@@ -57,8 +57,8 @@ if (language === "NO") {
           "?q=" +
           JSON.stringify([
             recipient,
-            `E-Post fra ${userEmail.value}`,
-            `Epost fra nettsidens kontakt form.\n\n${message.value}\n\nSendt fra: ${userName.value}`,
+            `E-Mail from ${userEmail.value}`,
+            `E-mail from website contact form.\n\n${message.value}\n\nSent by: ${userName.value}`,
           ])
       ).then(() => {
         // openModal();

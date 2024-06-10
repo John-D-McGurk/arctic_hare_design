@@ -6,7 +6,7 @@ import Footer from "../../components/Footer.astro";
 ---
 
 <Layout title="Contact"
-  ><Nav language="EN" page="contact" />
+  ><Nav language="en" page="contact" />
   <main>
     <div id="text-form" class="container flex space-lg">
       <div id="main-text" class="flex-column">
@@ -26,15 +26,23 @@ import Footer from "../../components/Footer.astro";
         >
         <span>Follow us on:</span>
         <div id="socials">
-          <a href="https://www.facebook.com/arctic.hare.design"
+          <a target="_blank" href="https://www.facebook.com/arctic.hare.design"
             ><img src="/facebook.svg" alt="" /></a
           >
-          <a href=""><img src="/instagram.svg" alt="" /></a>
-          <a href=""><img src="/linkedin.svg" alt="" /></a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/arctic_hare_design/"
+            ><img src="/instagram.svg" alt="" /></a
+          >
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/arctic-hare-design/about/"
+            ><img src="/linkedin.svg" alt="" /></a
+          >
         </div>
       </div>
       <div id="form-container">
-        <Form color="dark" language="EN" />
+        <Form color="dark" language="en" />
       </div>
     </div>
     <div id="wave-container" class="relative align-center">
@@ -46,7 +54,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </div>
   </main>
-  <Footer language="EN" />
+  <Footer language="en" />
 </Layout>
 
 <style>
