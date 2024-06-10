@@ -49,7 +49,11 @@ let page = `${pageDict[title]} | Arctic Hare Design`;
     <title>{page}</title>
     <meta name="description" content={description} />
 
-    <meta property="og:title" , content={page} />
+    <meta property="og:title" content={page} />
+    <meta
+      property="og:image"
+      content="https://arcticharedesign.no/og_image.png"
+    />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
