@@ -44,7 +44,7 @@ if (language === "no") {
     border-radius: 4rem;
     flex: 1;
     list-style: none;
-    min-height: 50rem;
+    min-height: 52rem;
     overflow: hidden;
   }
 
@@ -69,6 +69,11 @@ if (language === "no") {
     width: 100%;
   }
 
+  @media only screen and (max-width: 1200px) {
+    .link-card {
+      min-height: 40vw;
+    }
+  }
   @media only screen and (max-width: 768px) {
     .link-card {
       min-height: 112vw;
