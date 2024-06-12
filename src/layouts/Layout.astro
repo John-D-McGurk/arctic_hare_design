@@ -8,8 +8,14 @@ interface Props {
 }
 
 const { title, language, description } = Astro.props;
+let urlTitle;
+if (title === "Home") {
+  urlTitle = "";
+} else {
+  urlTitle = title.toLocaleLowerCase();
+}
 let pageDict;
-const url = `https://arcticharedesign.no/${language}/${title}`;
+const url = `https://arcticharedesign.no/${language}/${urlTitle}`;
 
 if (language === "bg") {
   pageDict = {
