@@ -5,11 +5,12 @@ interface Props {
 }
 
 const { language, page } = Astro.props;
-let home, projects, services, contactUs, pageLink;
+let home, projects, services, blog, contactUs, pageLink;
 
 const homeLink = `/${language}`,
   projectsLink = `/${language}/projects`,
-  servicesLink = `/${language}/services`,
+  servicesLink = `/${language}/services`,  
+  blogLink = `/${language}/blog`,
   contactLink = `/${language}/contact`,
   languageCapitalised = language.toUpperCase();
 
@@ -23,16 +24,19 @@ if (language === "no") {
   home = "Hjem";
   projects = "Prosjekter";
   services = "Tjenester";
+  blog = "Blogg";
   contactUs = "Kontakt Oss";
 } else if (language === "bg") {
   home = "Начало";
   projects = "Проекти";
   services = "Услуги";
+  blog = "Блог"
   contactUs = "Контакт";
 } else {
   home = "Home";
   projects = "Projects";
   services = "Services";
+  blog = "Blog"
   contactUs = "Contact Us";
 }
 ---
@@ -50,6 +54,7 @@ if (language === "no") {
       <li><a href={homeLink}>{home}</a></li>
       <li><a href={projectsLink}>{projects}</a></li>
       <li><a href={servicesLink}>{services}</a></li>
+      <li><a href={blogLink}>{blog}</a></li>
     </ul>
     <a href={contactLink} id="contact" class="btn btn-primary">{contactUs}</a>
     <div id="dropdown">
@@ -152,11 +157,16 @@ if (language === "no") {
     margin: var(--space-xxs) 0;
     transform: translateX(calc(-1 * var(--space-xxs)));
     z-index: 1;
-  }
+    background: var(--black);
+    }
 
   #dropdown-contents a {
-    padding: 0.5rem var(--space-xxs);
+    padding: var(--space-xxs) ;
   }
+
+  #dropdown-contents a:last-of-type {
+  }
+
 
   #dropdown-contents a:hover {
     background: #fff3;

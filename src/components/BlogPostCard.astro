@@ -1,0 +1,29 @@
+---
+const { post } = Astro.props,
+  frontmatter = post.frontmatter,
+  imageLink = `/blog/${frontmatter.url}.svg`,
+  url = `blog/${frontmatter.url}`;
+---
+
+<li>
+  <a href={url}>
+    <img src={imageLink} alt={frontmatter.image.url} />
+    <h2>{frontmatter.title}</h2>
+    <p>{frontmatter.description}</p></a
+  >
+</li>
+
+<style>
+  li {
+    background: var(--secondary);
+    padding: var(--space-xs);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: var(--text-md);
+  }
+</style>

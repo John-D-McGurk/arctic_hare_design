@@ -5,25 +5,28 @@ interface Props {
 
 const { language } = Astro.props;
 
-let home, projects, services, contactUs, phone, email, letsTalk;
+let home, projects, services, blog, contactUs, phone, email, letsTalk;
 
 const homeLink = `/${language}`,
   projectsLink = `/${language}/projects`,
   servicesLink = `/${language}/services`,
+  blogLink = `/${language}/blog`,
   contactLink = `/${language}/contact`;
 
-if (language === "NO") {
+if (language === "no") {
   home = "Hjem";
   projects = "Prosjekter";
   services = "Tjenester";
+  blog = "Blogg";
   contactUs = "Kontakt Oss";
   phone = "Telefon";
   email = "E-Post";
   letsTalk = "Prat med oss";
-} else if (language === "BG") {
+} else if (language === "bg") {
   home = "Начало";
   projects = "Проекти";
   services = "Услуги";
+  blog = "Блог";
   contactUs = "Контакт";
   phone = "телефон";
   email = "Имейл";
@@ -32,6 +35,7 @@ if (language === "NO") {
   home = "Home";
   projects = "Projects";
   services = "Services";
+  blog = "Blog";
   contactUs = "Contact Us";
   phone = "Phone";
   email = "E-mail";
@@ -64,6 +68,7 @@ if (language === "NO") {
     <a href={homeLink}>{home}</a>
     <a href={servicesLink}>{services}</a>
     <a href={projectsLink}>{projects}</a>
+    <a href={blogLink}>{blog}</a>
     <a href={contactLink}>{contactUs}</a>
   </nav>
   <a href={homeLink}
@@ -78,6 +83,7 @@ if (language === "NO") {
 
 <style>
   footer {
+    background: var(--black);
     color: var(--white);
     padding: var(--space-lg);
     justify-content: space-between;

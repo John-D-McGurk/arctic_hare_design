@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+
+const posts = await Astro.glob("../../content/blog/en/*.md");
+---
+
+<Layout title="Blog" language="en" description="">
+  <main slot="body">
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="/services/header-wave.svg" alt="" />
+      <img
+        id="header-image"
+        class="absolute"
+        src="/services/header-image.svg"
+        alt=""
+      />
+      <div class="container">
+        <h1>Blog</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <ul>
+          {posts.map((post) => <BlogPostCard post={post} />)}
+        </ul>
+      </div>
+    </div>
+    <Footer language="en" />
+  </main>
+</Layout>
+
+<style>
+
+    h1 {
+        color: var(--white);
+    }
+  #wave-container {
+    padding-bottom: 30rem;
+  }
+
+  #wave-container .wave {
+    max-height: 80%;
+  }
+
+  #header-image {
+    right: var(--space-xl);
+    bottom: 0;
+    height: 60;
+    max-width: 50%;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 5rem;
+    list-style: none;
+    margin: 0;
+    padding: var(--space-lg) 0;
+  }
+</style>

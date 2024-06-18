@@ -1,0 +1,148 @@
+---
+import Layout from "./Layout.astro";
+import Footer from "../components/Footer.astro";
+
+const { contentFile} = Astro.props,
+  frontmatter = contentFile.frontmatter,
+  image = `/blog/${frontmatter.url}.svg`,
+  ContentComponent = contentFile.default,
+  contactLink = `/${frontmatter.language}/contact`,
+  ogImage = `https://arcticharedesign.no/blog/${frontmatter.url}.svg`,
+  language = frontmatter.language;
+
+let profilePicUrl, writtenBy, published, letUsKnow, leaveMessage;
+
+const url = `blog/${frontmatter.url}`;
+
+if (frontmatter.author === "John McGurk") {
+  profilePicUrl = "/blog/john_profile.png";
+} else if (frontmatter.author === "Yoana Mileva") {
+  profilePicUrl = "/blog/Yoana_profile.png";
+}
+
+if (language === "no") {
+    writtenBy = "Skrevet av";
+    published = "Publisert";
+    letUsKnow = "Fortell oss hva du synes";
+    leaveMessage = "Legg igjen en kommentar";
+} else if(language === "bg") {
+  writtenBy = "Автор";
+  published = "Публикувано на";
+  letUsKnow = "Кажете ни какво мислите";
+  leaveMessage = "Оставете съобщение";
+
+} else {
+    writtenBy = "Written by";
+    published = "Published";
+    letUsKnow = "Let us know what you think";
+    leaveMessage = "Leave a message";
+}
+---
+
+<Layout
+  title={frontmatter.title}
+  language={frontmatter.language}
+  description={frontmatter.description}
+  url={url}
+  ogImage= {ogImage}
+>
+  <main slot="body" class={language === "bg" && "bg"}>
+    <div class="container">
+      <img id="header-image" src={image} alt={frontmatter.image.alt} />
+      <h1>{frontmatter.title}</h1>
+      <div id="under-title" class="justify-between">
+        <div id="author-info" class="align-center">
+          <img id="author-profile" src={profilePicUrl} alt="" />
+          <div id="author-info-text" class="flex-column justify-center">
+            <p>{writtenBy} <span id="author-name">{frontmatter.author}</span></p>
+            <p id="publication-date">{published} {frontmatter.pubDate}</p>
+          </div>
+        </div>
+        <div id="message-box" class="flex-column align-center">
+                    <h2>{letUsKnow}</h2>
+                    <a href={contactLink} class="btn btn-primary">{leaveMessage}</a>
+
+        </div>
+      </div>
+      <ContentComponent />
+    </div>
+    <Footer language={language} />
+  </main>
+</Layout>
+
+<style is:global>
+  .container {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  main {
+    background: var(--light);
+  }
+
+  #message-box {
+    background: #fff;
+    border-radius: 2rem;
+    padding: var(--space-sm);
+  }
+
+  #message-box h2 {
+    font-size: var(--text-md);
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+    color: var(--dark);
+  }
+
+  #header-image {
+    width: 100%;
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .container h2 {
+    margin-top: var(--space-sm);
+    color: var(--accent);
+  }
+
+  .container a:not(.btn) {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  #author-info,
+  #message-box {
+    margin-bottom: var(--space-sm);
+  }
+
+  #author-name {
+    font-family: "champagne_bold", sans-serif;
+  }
+
+  #author-profile {
+    height: 8rem;
+  }
+
+  #author-info-text p {
+    margin: 0.5rem;
+  }
+
+  #publication-date {
+    font-size: var(--text-xs);
+    color: var(--gray);
+  }
+
+  p {
+    margin: var(--space-xs) 0;
+  }
+
+  p + h2 {
+    margin-top: var(--space-md);
+  }
+
+  p + h3 {
+    margin-top: var(--space-sm);
+  }
+</style>

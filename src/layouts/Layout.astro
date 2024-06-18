@@ -5,17 +5,43 @@ interface Props {
   title: string;
   language: string;
   description: string;
+  url?: string;
+  ogImage?: string;
 }
 
-const { title, language, description } = Astro.props;
-let urlTitle;
+const { title, language, description, url, ogImage } = Astro.props;
+
+let pageTitle,
+cannonicalUrl,
+ogImageUrl,
+page;
+
+if (url) {
+  page = url;
+} else {
+  page = title;
+}
+
+if (ogImage) {
+  ogImageUrl = ogImage;
+} else {
+  ogImageUrl = "https://arcticharedesign.no/og_image.png"
+}
+
+const navPages = ["Home", "Projects", "Services", "Blog", "Contact"];
+
+if (navPages.includes(title)) {
+let pageDict,
+urlTitle;
+
 if (title === "Home") {
   urlTitle = "";
 } else {
   urlTitle = title.toLocaleLowerCase();
 }
-let pageDict;
-const url = `https://arcticharedesign.no/${language}/${urlTitle}`;
+
+cannonicalUrl = `https://arcticharedesign.no/${language}/${urlTitle}`;
+
 
 if (language === "bg") {
   pageDict = {
@@ -29,6 +55,7 @@ if (language === "bg") {
     Home: "Professjonell Webutvikling & Designbyrå",
     Projects: "Prosjekter",
     Services: "Våre webutvikling og Designtjenester",
+    Blog: "Innsikt og Tips om Profesjonell Webutvikling",
     Contact: "Kontakt Oss",
   };
 } else {
@@ -36,10 +63,16 @@ if (language === "bg") {
     Home: "Professional Web Development & Design Agency",
     Projects: "Our Web Development Projects",
     Services: "Our Web Development & Design Services",
+    Blog: "Insights & Tips on Professional Web Development",
     Contact: "Contact Us",
   };
 }
-let page = `${pageDict[title]} | Arctic Hare Design`;
+pageTitle = `${pageDict[title]} | Arctic Hare Design`;
+
+} else {
+  pageTitle = `${title} | Arctic Hare Design`;
+  cannonicalUrl = `https://arcticharedesign.no/${language}/${url}`;
+}
 ---
 
 <!doctype html>
@@ -51,20 +84,19 @@ let page = `${pageDict[title]} | Arctic Hare Design`;
     <meta name="generator" content={Astro.generator} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <title>{page}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
 
-    <meta property="og:title" content={page} />
+    <meta property="og:title" content={pageTitle} />
     <meta
-      property="og:image"
-      content="https://arcticharedesign.no/og_image.png"
+      property="og:image" content={ogImageUrl}
     />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={cannonicalUrl} />
   </head>
   <body>
-    <Nav language={language} page={title} />
+    <Nav language={language} page={page} />
 
     <slot name="body" />
   </body>
@@ -112,6 +144,7 @@ let page = `${pageDict[title]} | Arctic Hare Design`;
       --light: #fef4ec;
       --white: #fffaf6;
       --black: #161e31;
+      --gray: #6d818b;
 
       --secondary-30: #ffd4b34d;
 
@@ -127,6 +160,7 @@ let page = `${pageDict[title]} | Arctic Hare Design`;
       --text-md: 2.8rem;
       --text-ms: 2.666rem;
       --text-sm: 2rem;
+      --text-xs: 1.6rem;
 
       --nav-height: 10rem;
 
@@ -228,6 +262,11 @@ let page = `${pageDict[title]} | Arctic Hare Design`;
     .justify-end {
       display: flex;
       justify-content: flex-end;
+    }
+
+    .justify-between {
+      display: flex;
+      justify-content: space-between;
     }
 
     .relative {
