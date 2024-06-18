@@ -2,7 +2,7 @@
 const { post } = Astro.props,
   frontmatter = post.frontmatter,
   imageLink = `/blog/${frontmatter.url}.svg`,
-  url = `blog/${frontmatter.url}`;
+  url = `${frontmatter.url}`;
 ---
 
 <li>
