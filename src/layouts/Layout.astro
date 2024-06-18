@@ -11,10 +11,7 @@ interface Props {
 
 const { title, language, description, url, ogImage } = Astro.props;
 
-let pageTitle,
-cannonicalUrl,
-ogImageUrl,
-page;
+let pageTitle, cannonicalUrl, ogImageUrl, page;
 
 if (url) {
   page = url;
@@ -25,50 +22,47 @@ if (url) {
 if (ogImage) {
   ogImageUrl = ogImage;
 } else {
-  ogImageUrl = "https://arcticharedesign.no/og_image.png"
+  ogImageUrl = "https://arcticharedesign.no/og_image.png";
 }
 
 const navPages = ["Home", "Projects", "Services", "Blog", "Contact"];
 
 if (navPages.includes(title)) {
-let pageDict,
-urlTitle;
+  let pageDict, urlTitle;
 
-if (title === "Home") {
-  urlTitle = "";
-} else {
-  urlTitle = title.toLocaleLowerCase();
-}
+  if (title === "Home") {
+    urlTitle = "";
+  } else {
+    urlTitle = title.toLocaleLowerCase();
+  }
 
-cannonicalUrl = `https://arcticharedesign.no/${language}/${urlTitle}`;
+  cannonicalUrl = `https://arcticharedesign.no/${language}/${urlTitle}`;
 
-
-if (language === "bg") {
-  pageDict = {
-    Home: "Агенция за професионална уеб разработка и дизайн",
-    Projects: "Нашите проекти за уеб разработка",
-    Services: "Нашите услуги за уеб разработка и дизайн",
-    Contact: "Свържете се с нас",
-  };
-} else if (language === "no") {
-  pageDict = {
-    Home: "Professjonell Webutvikling & Designbyrå",
-    Projects: "Prosjekter",
-    Services: "Våre webutvikling og Designtjenester",
-    Blog: "Innsikt og Tips om Profesjonell Webutvikling",
-    Contact: "Kontakt Oss",
-  };
-} else {
-  pageDict = {
-    Home: "Professional Web Development & Design Agency",
-    Projects: "Our Web Development Projects",
-    Services: "Our Web Development & Design Services",
-    Blog: "Insights & Tips on Professional Web Development",
-    Contact: "Contact Us",
-  };
-}
-pageTitle = `${pageDict[title]} | Arctic Hare Design`;
-
+  if (language === "bg") {
+    pageDict = {
+      Home: "Агенция за професионална уеб разработка и дизайн",
+      Projects: "Нашите проекти за уеб разработка",
+      Services: "Нашите услуги за уеб разработка и дизайн",
+      Contact: "Свържете се с нас",
+    };
+  } else if (language === "no") {
+    pageDict = {
+      Home: "Professjonell Webutvikling & Designbyrå",
+      Projects: "Prosjekter",
+      Services: "Våre webutvikling og Designtjenester",
+      Blog: "Innsikt og Tips om Profesjonell Webutvikling",
+      Contact: "Kontakt Oss",
+    };
+  } else {
+    pageDict = {
+      Home: "Professional Web Development & Design Agency",
+      Projects: "Our Web Development Projects",
+      Services: "Our Web Development & Design Services",
+      Blog: "Insights & Tips on Professional Web Development",
+      Contact: "Contact Us",
+    };
+  }
+  pageTitle = `${pageDict[title]} | Arctic Hare Design`;
 } else {
   pageTitle = `${title} | Arctic Hare Design`;
   cannonicalUrl = `https://arcticharedesign.no/${language}/${url}`;
@@ -78,6 +72,18 @@ pageTitle = `${pageDict[title]} | Arctic Hare Design`;
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-YV9BPBMC01"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-YV9BPBMC01");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -88,9 +94,7 @@ pageTitle = `${pageDict[title]} | Arctic Hare Design`;
     <meta name="description" content={description} />
 
     <meta property="og:title" content={pageTitle} />
-    <meta
-      property="og:image" content={ogImageUrl}
-    />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={cannonicalUrl} />
