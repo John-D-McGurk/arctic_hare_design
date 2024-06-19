@@ -4,8 +4,8 @@ import Footer from "../../components/Footer.astro";
 import DownloadCard from "../../components/DownloadCard.astro";
 
 const downloads = await Astro.glob("../../content/downloads/*.md");
-
 ---
+
 <Layout
   title="Downloads"
   language="en"
@@ -19,29 +19,34 @@ const downloads = await Astro.glob("../../content/downloads/*.md");
       </div>
     </div>
     <div class="bg-white">
-        {downloads.map((download) => <DownloadCard download={download} />)}
+      <div class="container">
+        <ul>
+          {downloads.map((download) => <DownloadCard download={download} />)}
+        </ul>
+      </div>
     </div>
-<Footer language="en" />
-</Layout>
-<style>
-h1 {
-    color: var(--white);
-  }
+    <Footer language="en" />
+  </main>
+  <style>
+    h1 {
+      color: var(--white);
+    }
 
-  #wave-container {
-    padding-bottom: 30rem;
-  }
+    #wave-container {
+      padding-bottom: 30rem;
+    }
 
-  #wave-container img {
-    max-height: 70%;
-  }
+    #wave-container img {
+      max-height: 70%;
+    }
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 5rem;
-    list-style: none;
-    margin: 0;
-    padding: var(--space-lg) 0;
-  }
-  </style>
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-gap: 5rem;
+      list-style: none;
+      margin: 0;
+      padding: var(--space-lg) 0;
+    }
+  </style></Layout
+>
