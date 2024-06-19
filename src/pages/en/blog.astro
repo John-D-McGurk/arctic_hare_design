@@ -6,7 +6,8 @@ import BlogPostCard from "../../components/BlogPostCard.astro";
 const posts = await Astro.glob("../../content/blog/en/*.md");
 ---
 
-<Layout title="Blog" language="en" description="">
+<Layout title="Blog" language="en" description=
+"Explore our blog for insights, tips, and best practices in professional web development and design. Stay updated on the latest trends, technologies, and strategies to enhance your online presence.">
   <main slot="body">
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="/services/header-wave.svg" alt="" />
