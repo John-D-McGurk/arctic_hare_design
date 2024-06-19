@@ -95,6 +95,14 @@ if (navPages.includes(title)) {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@700&display=swap" rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" fetchpriority="high">
+
+<noscript>
+  <link rel="stylesheet" href="(font CSS URL here)">
+</noscript>
+
     <meta property="og:title" content={pageTitle} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:description" content={description} />
@@ -108,9 +116,7 @@ if (navPages.includes(title)) {
   </body>
 
   <style is:global>
-    @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
-    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
     @font-face {
       font-family: "champagne_regular";
