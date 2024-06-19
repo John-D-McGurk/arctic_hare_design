@@ -1,0 +1,32 @@
+---
+const { download } = Astro.props,
+  frontmatter = download.frontmatter,
+  imageLink = `/downloads/${frontmatter.url}.jpg`,
+  url = `/downloads/${frontmatter.url}.zip`;
+---
+
+<li>
+  <a href={url} download>
+    <img src={imageLink} alt={frontmatter.image.alt} />
+    <h2>{frontmatter.title}</h2>
+    <p>{frontmatter.description}</p></a
+  >
+</li>
+
+<style>
+  li {
+    background: var(--secondary);
+    padding: var(--space-xs);
+    border-radius: 4rem;
+    list-style: none;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 3rem;
+  }
+
+  h2 {
+    font-size: var(--text-md);
+  }
+</style>
