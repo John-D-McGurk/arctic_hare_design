@@ -174,7 +174,7 @@ if (navPages.includes(title)) {
       --space-xs: 2rem;
       --space-xxs: 1rem;
 
-      --text-xl: 7rem;
+      --text-xl: 5.4rem;
       --text-lg: 4rem;
       --text-md: 2.8rem;
       --text-ms: 2.666rem;
@@ -297,8 +297,8 @@ if (navPages.includes(title)) {
     }
 
     .space-lg {
-      padding-top: var(--space-xl);
-      padding-bottom: var(--space-xl);
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-lg);
       gap: var(--space-lg);
     }
 
@@ -321,25 +321,35 @@ if (navPages.includes(title)) {
     }
 
     .btn {
-      font-size: 2.4rem;
+      font-size: var(--text-ms);
       padding: 1.6rem 3.2rem;
-      border-radius: 5rem;
+      border-radius: 2rem;
+      border-width: 2px;
+      border-style: solid;
     }
 
     .btn-sm {
-      padding: 1rem 2.6rem;
-      border-radius: 5rem;
-      font-size: 2rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: 1.4rem;
+      font-size: var(--text-xs)
     }
 
     .btn-primary {
       background: var(--primary);
       color: var(--black);
+      border-color: var(--primary);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
     }
 
     .btn-accent {
       background: var(--accent);
       color: var(--light);
+      border-color: var(--accent);
     }
 
     .text-primary {

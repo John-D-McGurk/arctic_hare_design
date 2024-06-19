@@ -28,10 +28,20 @@ if (language === "no") {
 <div class:list={classList}>
   <img src={picture} alt="" />
   <p>{text}</p>
-  <a class="btn-sm btn-accent" target="_blank" href={href}>{linkText}</a>
+  <a class="btn btn-accent" target="_blank" href={href}>{linkText} <img src="/arrow-right-light.svg" alt=""></a>
 </div>
 
 <style>
+a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs);
+}
+
+a img {
+  width: 2.8rem;
+}
+
   div {
     padding: var(--space-lg);
     position: relative;
@@ -44,15 +54,17 @@ if (language === "no") {
   .reverse p {
     flex-grow: 1;
   }
-  .btn-sm {
+  .btn {
     position: absolute;
     bottom: var(--space-lg);
-    left: calc(var(--space-xl) * 2);
+    left: 50%;
+    transform: translateX(-100%);
   }
 
-  .reverse .btn-sm {
+  .reverse .btn {
     left: unset;
-    right: calc(var(--space-xl) * 2);
+    right: 50%;
+    transform: translateX(100%);
   }
   .container {
     gap: var(--space-md);
@@ -63,6 +75,19 @@ if (language === "no") {
   }
 
   @media only screen and (max-width: 768px) {
+    .btn {
+      bottom: 20rem;
+    }
+
+    .btn,
+    .reverse .btn {
+      transform: translateX(0);
+    }
+
+    .btn img {
+      width: 2.2rem;
+    }
+
     .container {
       gap: var(--space-sm);
     }

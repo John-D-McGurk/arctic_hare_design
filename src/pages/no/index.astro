@@ -35,6 +35,10 @@ import heroImage from "../../assets/index/hero-image.svg";
             merkeutforming til responsiv nettside, vi gjør din idé til
             virkelighet.
           </p>
+          <div id="cta" class=" flex">
+            <a class="btn btn-primary">Kontakt oss</a>
+            <a class="btn btn-secondary">Tjenester</a>
+          </div>
         </div>
         <Image
           id="hero-image"
@@ -203,6 +207,8 @@ import heroImage from "../../assets/index/hero-image.svg";
       min-height: calc(100vh - var(--nav-height));
       position: relative;
       padding-top: var(--space-lg);
+      padding-bottom: var(--space-xl);
+
     }
 
     #hero .container {
@@ -218,6 +224,12 @@ import heroImage from "../../assets/index/hero-image.svg";
       width: 100%;
       max-height: 60vh;
     }
+
+
+  #cta {
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
 
     #projects-section div {
       padding-bottom: 0;
@@ -289,6 +301,10 @@ import heroImage from "../../assets/index/hero-image.svg";
       top: var(--space-xl);
       transform: translateX(-15%);
     }
+
+    #lets-talk-section .space-lg {
+    padding: var(--space-xl) 0 var(--space-lg) 0;
+  }
 
     #lets-talk-section > div {
       padding-bottom: 0;
