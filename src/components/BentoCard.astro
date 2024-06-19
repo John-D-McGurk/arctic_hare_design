@@ -8,7 +8,7 @@ interface Props {
 const { image, title, href } = Astro.props;
 ---
 
-<a href={href} target="_blank" class="relative flex">
+<a href={href} rel="nofollow" target="_blank" class="relative flex">
   <img src={image} alt="" />
   <div id="hover-layer" class="center"><h2>{title}</h2></div>
 </a>

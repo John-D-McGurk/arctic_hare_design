@@ -44,11 +44,11 @@ import Footer from "../../components/Footer.astro";
               />
             </div>
             <div id="bento-bottom-right" class="flex-column bento">
-              <div id="arctic_hare_v1">
+              <div id="stephans-tennis">
                 <BentoCard
-                  image="/projects/arctic_hare_design_v1.png"
-                  title="Portfolio V1"
-                  href="/"
+                  image="/projects/stephans_tennis.png"
+                  title="Stephan's Tennis"
+                  href="https://www.figma.com/proto/5OQNwPObPKgm6VxZYHtFjV/Yoana-Mileva---Stephan's-new-Website?node-id=129-9218&t=spp9WlpkQ3oJeWVa-0&scaling=min-zoom&content-scaling=fixed&page-id=126%3A4754&starting-point-node-id=129%3A9218"
                 />
               </div>
               <div id="swiftbid">
@@ -63,90 +63,90 @@ import Footer from "../../components/Footer.astro";
         </div>
       </div>
     </div>
+    <Footer language="bg" />
   </main>
-  <Footer language="bg" />
-</Layout>
 
-<style>
-  h1 {
-    color: var(--white);
-  }
+  <style>
+    h1 {
+      color: var(--white);
+    }
 
-  #wave-container {
-    padding-bottom: 30rem;
-  }
-
-  #wave-container img {
-    max-height: 70%;
-  }
-
-  #bento-box {
-    padding-bottom: var(--space-xl);
-  }
-
-  .bento {
-    gap: var(--space-xs);
-    align-items: stretch;
-    justify-content: stretch;
-    filter: drop-shadow(3px 3px 6px #1e1e1e10);
-  }
-
-  #bento-top {
-    width: 100%;
-    height: 28.5rem;
-  }
-
-  #bento-bottom {
-    height: 50rem;
-  }
-
-  #bento-bottom-right {
-    flex-grow: 1;
-  }
-
-  #bento-bottom-right {
-    font-size: var(--text-md);
-  }
-
-  #john {
-    flex-grow: 1;
-  }
-
-  #urban-fox {
-    flex-grow: 3;
-  }
-
-  #mamrot {
-    flex-grow: 5;
-  }
-
-  #bento-bottom-right div {
-    flex-grow: 1;
-  }
-
-  .bento-container {
-  }
-
-  @media only screen and (max-width: 768px) {
     #wave-container {
+      padding-bottom: 30rem;
+    }
+
+    #wave-container img {
+      max-height: 70%;
+    }
+
+    #bento-box {
       padding-bottom: var(--space-xl);
     }
 
+    .bento {
+      gap: var(--space-xs);
+      align-items: stretch;
+      justify-content: stretch;
+      filter: drop-shadow(3px 3px 6px #1e1e1e10);
+    }
+
     #bento-top {
-      height: 22vw;
+      width: 100%;
+      height: 28.5rem;
     }
 
     #bento-bottom {
-      flex-direction: column;
-      height: 85vw;
-    }
-
-    #mamrot {
-      flex-grow: 1.7;
+      height: 50rem;
     }
 
     #bento-bottom-right {
-      flex-direction: row;
+      flex-grow: 1;
     }
-  }
-</style>
+
+    #bento-bottom-right {
+      font-size: var(--text-md);
+    }
+
+    #john {
+      flex-grow: 1;
+    }
+
+    #urban-fox {
+      flex-grow: 3;
+    }
+
+    #mamrot {
+      flex-grow: 5;
+    }
+
+    #bento-bottom-right div {
+      flex-grow: 1;
+    }
+
+    .bento-container {
+    }
+
+    @media only screen and (max-width: 768px) {
+      #wave-container {
+        padding-bottom: var(--space-xl);
+      }
+
+      #bento-top {
+        height: 22vw;
+      }
+
+      #bento-bottom {
+        flex-direction: column;
+        height: 85vw;
+      }
+
+      #mamrot {
+        flex-grow: 1.7;
+      }
+
+      #bento-bottom-right {
+        flex-direction: row;
+      }
+    }
+  </style>
+</Layout>
