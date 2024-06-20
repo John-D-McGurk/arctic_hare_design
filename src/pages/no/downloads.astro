@@ -1,21 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import DownloadCard from "../components/DownloadCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import DownloadCard from "../../components/DownloadCard.astro";
 
-const downloads = await Astro.glob("../content/downloads/*.md");
+const downloads = await Astro.glob("../../content/downloads/no/*.md");
 ---
 
 <Layout
   title="Downloads"
-  language="en"
-  description="Download code snippets from our collection"
+  language="no"
+  description="Utforsk og last ned høykvalitets kodeeksempler fra vår omfattende samling for å forbedre prosjektene dine. Finn løsninger og inspirasjon til alle dine kodebehov."
 >
   <main slot="body">
     <div id="wave-container" class="relative space-lg">
       <img class="wave absolute" src="/projects/wave.svg" alt="" />
       <div class="container">
-        <h1>Downloads</h1>
+        <h1>Nedlastninger</h1>
       </div>
     </div>
     <div class="bg-white">
@@ -25,7 +25,7 @@ const downloads = await Astro.glob("../content/downloads/*.md");
         </ul>
       </div>
     </div>
-    <Footer language="en" />
+    <Footer language="no" />
   </main>
   <style>
     h1 {

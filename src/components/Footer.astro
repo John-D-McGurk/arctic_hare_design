@@ -5,13 +5,14 @@ interface Props {
 
 const { language } = Astro.props;
 
-let home, projects, services, blog, contactUs, phone, email, letsTalk;
+let home, projects, services, blog, contactUs, downloads, phone, email, letsTalk;
 
 const homeLink = `/${language}`,
   projectsLink = `/${language}/projects`,
   servicesLink = `/${language}/services`,
   blogLink = `/${language}/blog`,
-  contactLink = `/${language}/contact`;
+  contactLink = `/${language}/contact`,
+  downloadLink = `/${language}/downloads`
 
 if (language === "no") {
   home = "Hjem";
@@ -19,6 +20,7 @@ if (language === "no") {
   services = "Tjenester";
   blog = "Blogg";
   contactUs = "Kontakt Oss";
+  downloads = "Nedlastninger";
   phone = "Telefon";
   email = "E-Post";
   letsTalk = "Prat med oss";
@@ -28,7 +30,8 @@ if (language === "no") {
   services = "Услуги";
   blog = "Блог";
   contactUs = "Контакт";
-  phone = "телефон";
+  downloads = "Изтегляния";
+  phone = "Телефон";
   email = "Имейл";
   letsTalk = "Свържи се с нас";
 } else {
@@ -37,6 +40,7 @@ if (language === "no") {
   services = "Services";
   blog = "Blog";
   contactUs = "Contact Us";
+  downloads = "Downloads";
   phone = "Phone";
   email = "E-mail";
   letsTalk = "Let's talk";
@@ -70,7 +74,7 @@ if (language === "no") {
     <a href={projectsLink}>{projects}</a>
     <a href={blogLink}>{blog}</a>
     <a href={contactLink}>{contactUs}</a>
-    <a href="/downloads">Downloads</a>
+    <a href={downloadLink}>{downloads}</a>
   </nav>
   <a href={homeLink}
     ><img

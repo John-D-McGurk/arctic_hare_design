@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import DownloadCard from "../../components/DownloadCard.astro";
+
+const downloads = await Astro.glob("../../content/downloads/bg/*.md");
+---
+
+<Layout
+  title="Downloads"
+  language="bg"
+  description="Разгледайте и изтеглете висококачествени кодовe от нашата обширна колекция, за да подобрите вашите проекти."
+>
+  <main slot="body">
+    <div id="wave-container" class="relative space-lg">
+      <img class="wave absolute" src="/projects/wave.svg" alt="" />
+      <div class="container">
+        <h1>Изтегляния</h1>
+      </div>
+    </div>
+    <div class="bg-white">
+      <div class="container">
+        <ul>
+          {downloads.map((download) => <DownloadCard download={download} />)}
+        </ul>
+      </div>
+    </div>
+    <Footer language="bg" />
+  </main>
+  <style>
+    h1 {
+      color: var(--white);
+    }
+
+    #wave-container {
+      padding-bottom: 30rem;
+    }
+
+    #wave-container img {
+      max-height: 70%;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-gap: 5rem;
+      list-style: none;
+      margin: 0;
+      padding: var(--space-lg) 0;
+    }
+  </style></Layout
+>
