@@ -1,9 +1,9 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Footer.astro";
-import DownloadCard from "../../components/DownloadCard.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import DownloadCard from "../components/DownloadCard.astro";
 
-const downloads = await Astro.glob("../../content/downloads/*.md");
+const downloads = await Astro.glob("../content/downloads/*.md");
 ---
 
 <Layout
