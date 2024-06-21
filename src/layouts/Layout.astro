@@ -97,7 +97,7 @@ if (navPages.includes(title)) {
           return cookies[key];
         },
         setItem: (key, value) => {
-          document.cookie = `${key}=${value};Max-Age=15638400; Domain=.arcticharedesign.no`;
+          document.cookie = `${key}=${value};Max-Age=15638400; Domain=.arcticharedesign.no; Path=/`;
         },
       };
 
