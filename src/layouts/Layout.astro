@@ -1,4 +1,5 @@
 ---
+import ConsentBanner from "../components/ConsentBanner.astro";
 import Nav from "../components/Nav.astro";
 
 interface Props {
@@ -70,22 +71,135 @@ if (navPages.includes(title)) {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-YV9BPBMC01"></script>
+
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
 
+      const cookieStorage = {
+        getItem: (key) => {
+          const cookies = document.cookie
+            .split(";")
+            .map((cookie) => cookie.split("="))
+            .reduce(
+              (acc, [key, value]) => ({ ...acc, [key.trim()]: value }),
+              {}
+            );
+          return cookies[key];
+        },
+        setItem: (key, value) => {
+          document.cookie = `${key}=${value};Max-Age=15638400; Domain=.arcticharedesign.no`;
+        },
+      };
+
+      const storageType = cookieStorage;
+      const consentPropertyName = "arctic_hare_design_consent";
+
+      const saveToStorage = () => {
+        storageType.setItem(consentPropertyName, true);
+        console.log("saved");
+      };
+
+      const showBanner = !storageType.getItem(consentPropertyName);
+      if (showBanner) {
+        const banner = document.querySelector("#consent-banner"),
+          consent = document.querySelector("#consent"),
+          noConsent = document.querySelector("#no-consent");
+        setTimeout(() => {
+          banner.classList.add("show");
+        }, 2000);
+        consent.onclick = () => {
+          saveToStorage();
+          consentGranted();
+          banner.classList.remove("show");
+        };
+        noConsent.onclick = () => {
+          banner.classList.remove("show");
+        };
+      } else {
+      }
+
+      window.consentGranted = () => {
+        console.log("consent granted");
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+          functionality_storage: "granted",
+          personalization_storage: "granted",
+          security_storage: "granted",
+        });
+
+        fbq("consent", "grant");
+      };
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
+      gtag("js", new Date());
       gtag("config", "G-YV9BPBMC01");
+
+      // Meta Pixel Code
+
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("consent", "revoke");
+      fbq("init", "1266286311012324");
+      fbq("track", "PageView");
     </script>
+    <!-- <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1266286311012324&ev=PageView&noscript=1"
+      /></noscript
+    > -->
+    <!-- End Meta Pixel Code -->
+    <script>
+      const storageType = localStorage;
+      const consentPropertyName = "arctic_hare_design_consent";
+
+      const showPopup = () => !storageType.getItem(consentPropertyName);
+      const saveToStorage = () =>
+        storageType.setItem(consentPropertyName, "true");
+
+      let consent = document.querySelector("#consent") as HTMLElement;
+      consent.addEventListener("click", saveToStorage);
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -95,46 +209,39 @@ if (navPages.includes(title)) {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@700&display=swap" rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      fetchpriority="high"
+    />
 
-<noscript>
-  <link rel="stylesheet" href="(font CSS URL here)">
-</noscript>
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@700&display=swap"
+      />
+    </noscript>
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={cannonicalUrl} />
-    <!-- Meta Pixel Code -->
-<script type="text/partytown">
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1266286311012324');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266286311012324&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+
+    <script type="text/partytown"></script>
   </head>
   <body>
     <Nav language={language} page={page} />
+    <ConsentBanner />
 
     <slot name="body" />
   </body>
 
   <style is:global>
-
-
     @font-face {
       font-family: "champagne_regular";
       src: url("/fonts/champagne__limousines-webfont.woff2") format("woff2");
@@ -150,7 +257,6 @@ if (navPages.includes(title)) {
       font-weight: normal;
       font-style: normal;
       font-display: swap;
-
     }
 
     @font-face {
@@ -160,7 +266,6 @@ if (navPages.includes(title)) {
       font-weight: normal;
       font-style: normal;
       font-display: swap;
-
     }
 
     @font-face {
@@ -170,7 +275,6 @@ if (navPages.includes(title)) {
       font-weight: normal;
       font-style: normal;
       font-display: swap;
-
     }
 
     :root {
@@ -348,7 +452,7 @@ if (navPages.includes(title)) {
     .btn-sm {
       padding: 0.8rem 1.4rem;
       border-radius: 1.4rem;
-      font-size: var(--text-xs)
+      font-size: var(--text-xs);
     }
 
     .btn-primary {
