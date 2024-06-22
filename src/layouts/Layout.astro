@@ -126,6 +126,7 @@ if (navPages.includes(title)) {
           banner.classList.remove("show");
         };
       } else {
+        consentGranted();
       }
 
       window.consentGranted = () => {
@@ -160,6 +161,7 @@ if (navPages.includes(title)) {
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
+  fbq("consent", "revoked")
       fbq("init", "1266286311012324");
       fbq("track", "PageView");
     </script>
