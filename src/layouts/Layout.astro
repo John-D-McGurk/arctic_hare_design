@@ -126,11 +126,11 @@ if (navPages.includes(title)) {
           banner.classList.remove("show");
         };
       } else {
-        window.consentGranted();
+        console.log('else')
       }
 
       window.consentGranted = () => {
-        fbq("consent", "grant");
+        // fbq("consent", "grant");
         gtag("consent", "update", {
           ad_storage: "granted",
           analytics_storage: "granted",
@@ -138,8 +138,8 @@ if (navPages.includes(title)) {
           personalization_storage: "granted",
           security_storage: "granted",
         });
-            console.log("consent granted");
-};
+        console.log("consent granted");
+      };
 
       gtag("consent", "default", {
         ad_storage: "denied",
