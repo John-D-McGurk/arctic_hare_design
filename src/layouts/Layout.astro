@@ -119,18 +119,18 @@ if (navPages.includes(title)) {
         }, 2000);
         consent.onclick = () => {
           saveToStorage();
-          consentGranted();
+          window.consentGranted();
           banner.classList.remove("show");
         };
         noConsent.onclick = () => {
           banner.classList.remove("show");
         };
       } else {
-        consentGranted();
+        window.consentGranted();
       }
 
       window.consentGranted = () => {
-        console.log("consent granted");
+        fbq("consent", "grant");
         gtag("consent", "update", {
           ad_storage: "granted",
           analytics_storage: "granted",
@@ -138,9 +138,8 @@ if (navPages.includes(title)) {
           personalization_storage: "granted",
           security_storage: "granted",
         });
-
-        fbq("consent", "grant");
-      };
+            console.log("consent granted");
+};
 
       gtag("consent", "default", {
         ad_storage: "denied",
@@ -153,15 +152,29 @@ if (navPages.includes(title)) {
 
       // Meta Pixel Code
 
-      !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq("consent", "revoked")
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
       fbq("init", "1266286311012324");
       fbq("track", "PageView");
     </script>
@@ -211,7 +224,7 @@ if (navPages.includes(title)) {
         style="display:none"
         src="https://www.facebook.com/tr?id=1266286311012324&ev=PageView&noscript=1"
       /></noscript
-    > 
+    >
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:image" content={ogImageUrl} />
