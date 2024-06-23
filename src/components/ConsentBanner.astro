@@ -1,70 +1,107 @@
+---
+interface Props {
+  language: string;
+}
+
+const { language } = Astro.props;
+
+let heading, p1, p2, thanks, consent, noConsent;
+
+if (language === "no") {
+  heading = "Vi verdsetter ditt personvern";
+  p1 =
+    "Vi bruker informasjonskapsler for å gjøre opplevelsen din på nettstedet vårt enda bedre. Noen av disse informasjonskapslene er essensielle, men vi bruker også analytiske informasjonskapsler for å forstå hvordan du bruker nettstedet vårt og for å forbedre det for deg.";
+  p2 =
+    'Ved å klikke på "Tillat alle" samtykker du til vår bruk av disse informasjonskapslene. Hvis du foretrekker å bare bruke essensielle informasjonskapsler, klikker du på "Kun nødvendige".';
+  thanks = "Takk for besøket!";
+  consent = "Tillat Alle";
+  noConsent = "Kun Nødvendige";
+} else if (language === "bg") {
+  heading = "Ние ценим вашата поверителност";
+  p1 =
+    "Използваме бисквитки, за да направим вашето преживяване на нашия сайт още по-добро. Някои от тези бисквитки са основни, но използваме и аналитични бисквитки, за да разберем как използвате нашия сайт и да го подобрим за вас.";
+  p2 =
+    'Като щракнете върху "Разрешаване", вие се съгласявате с нашето използване на тези бисквитки. Ако предпочитате да използвате само основни бисквитки, щракнете върху "Само основни".';
+  thanks = "Благодарим за посещението!";
+  consent = "Разрешаване";
+  noConsent = "Само основни";
+} else {
+  heading = "We value your privacy";
+  p1 =
+    "We use cookies to make your experience on our site even better. Some of these cookies are essential, but we also use analytics cookies to understand how you use our site and to improve it for you.";
+  p2 =
+    'By clicking "Allow all" you agree to our use of these cookies. If you would prefer to use only essential cookies, click "Essential only".';
+  thanks = "Thanks for visiting!";
+  consent = "Allow all";
+  noConsent = "Only essential";
+}
+---
+
 <div id="consent-banner">
-  <h2>We value your privacy</h2>
+  <h2>{heading}</h2>
+  <p>{p1}</p>
+
   <p>
-    We use cookies to make your experience on our site even better. Some of
-    these cookies are essential, but we also use analytics cookies to understand
-    how you use our site and to improve it for you.
-  </p><p>
-    By clicking "Allow all" you agree to our use of these cookies. If you would
-    prefer to use only essential cookies, click "Allow essential".
-    <p>Thanks for visiting!</p>
+    {p2}
+    <p>{thanks}</p>
   </p>
   <div class="justify-end">
-  <button id="no-consent" class="btn btn-secondary">Allow essential</button>
-  <button id="consent" class="btn btn-primary">Allow all</button></div>
+    <button id="no-consent" class="btn btn-secondary">{noConsent}</button>
+    <button id="consent" class="btn btn-primary">{consent}</button>
+  </div>
 </div>
 
 <style>
+  #consent-banner {
+    font-family: Verdana, sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--black);
+    color: var(--white);
+    box-sizing: border-box;
+    padding: var(--space-md) var(--space-lg);
+    border-top: 2px solid;
+    transform: translateY(100%);
+    transition: transform 0.8s;
+  }
+
+  #consent-banner.show {
+    transform: translateY(0);
+  }
+
+  #consent-banner h2 {
+    font-family: Verdana, sans-serif;
+    font-weight: 600;
+    font-size: var(--text-md);
+  }
+
+  #consent-banner p {
+    font-size: var(--text-sm);
+  }
+
+  .btn {
+    border-radius: 0;
+  }
+
+  .btn-secondary {
+    color: var(--white);
+  }
+
+  .justify-end {
+    gap: var(--space-sm);
+  }
+
+  @media only screen and (max-width: 768px) {
     #consent-banner {
-        font-family: Verdana, sans-serif;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background: var(--black);
-        color: var(--white);
-        box-sizing: border-box;
-        padding: var(--space-md) var(--space-lg);
-        border-top: 2px solid;
-        transform: translateY(100%);
-        transition: transform 0.8s;
-    }
-
-    #consent-banner.show {
-        transform: translateY(0);
-    }
-
-    #consent-banner h2 {
-        font-family: Verdana, sans-serif;
-        font-weight: 600;
-        font-size: var(--text-md);
-    }
-
-    #consent-banner p {
-        font-size: var(--text-sm);
-    }
-    
-    .btn {
-        border-radius: 0;
-    }
-
-    .btn-secondary {
-        color: var(--white);
+      padding: var(--space-sm) var(--space-xs);
     }
 
     .justify-end {
-        gap: var(--space-sm);
+      justify-content: center;
+      padding: var(--space-sm) 0;
     }
-
-    @media only screen and (max-width: 768px) {
-    #consent-banner {
-        padding: var(--space-sm) var(--space-xs);
-    }
-
-    .justify-end {
-        justify-content: center;
-        padding: var(--space-sm) 0;
-    }
-    }
+  }
 </style>

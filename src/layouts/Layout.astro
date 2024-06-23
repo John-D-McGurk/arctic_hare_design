@@ -109,6 +109,18 @@ if (navPages.includes(title)) {
         console.log("saved");
       };
 
+      window.consentGranted = () => {
+        // fbq("consent", "grant");
+        gtag("consent", "update", {
+          ad_storage: "granted",
+          analytics_storage: "granted",
+          functionality_storage: "granted",
+          personalization_storage: "granted",
+          security_storage: "granted",
+        });
+        console.log("consent granted");
+      };
+
       const showBanner = !storageType.getItem(consentPropertyName);
       if (showBanner) {
         const banner = document.querySelector("#consent-banner"),
@@ -126,20 +138,9 @@ if (navPages.includes(title)) {
           banner.classList.remove("show");
         };
       } else {
-        console.log('else')
+        console.log("else");
+        window.consentGranted();
       }
-
-      window.consentGranted = () => {
-        // fbq("consent", "grant");
-        gtag("consent", "update", {
-          ad_storage: "granted",
-          analytics_storage: "granted",
-          functionality_storage: "granted",
-          personalization_storage: "granted",
-          security_storage: "granted",
-        });
-        console.log("consent granted");
-      };
 
       gtag("consent", "default", {
         ad_storage: "denied",
@@ -177,6 +178,7 @@ if (navPages.includes(title)) {
       );
       fbq("init", "1266286311012324");
       fbq("track", "PageView");
+      console.log('fb')
     </script>
     <!-- 
     <!-- End Meta Pixel Code -->
@@ -236,7 +238,7 @@ if (navPages.includes(title)) {
   </head>
   <body>
     <Nav language={language} page={page} />
-    <ConsentBanner />
+    <ConsentBanner language={language} />
 
     <slot name="body" />
   </body>
