@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 
 const { contentFile} = Astro.props,
   frontmatter = contentFile.frontmatter,
-  image = `/blog/${frontmatter.url}.svg`,
+  image = `/blog/${frontmatter.url}.jpg`,
   ContentComponent = contentFile.default,
   contactLink = `/${frontmatter.language}/contact`,
   ogImage = `https://arcticharedesign.no/blog/${frontmatter.url}.jpg`,
@@ -17,7 +17,7 @@ const url = `blog/${frontmatter.url}`;
 if (frontmatter.author === "John McGurk") {
   profilePicUrl = "/blog/john_profile.png";
 } else if (frontmatter.author === "Yoana Mileva") {
-  profilePicUrl = "/blog/Yoana_profile.png";
+  profilePicUrl = "/blog/yoana_profile.png";
 }
 
 if (language === "no") {
