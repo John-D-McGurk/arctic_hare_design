@@ -2,7 +2,7 @@ change image imports in props to astro Image type
 
 switch md to mdx to include everything in frontmatter
 
-fix languages using components and markdown to prevent changing in multiple files?
+fix languages using layouts and markdown to prevent changing in multiple files?
 
 refactor language into prop to pass to components
 
@@ -15,3 +15,5 @@ fix nav and footer to be inside layout
 fix image sizes for projects page
 
 use netlify forms
+
+fix blog image size to use Image from astro
